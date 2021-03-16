@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const LayoutWrapper = styled.div`
     width: 1440px;
@@ -15,6 +17,14 @@ const LayoutWrapper = styled.div`
         height: 60px;
         border-bottom: 1px solid green;
         display: flex;
+        justify-content: space-between;
+    }
+
+    & nav {
+      width: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     & main {
@@ -34,14 +44,32 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const Layout = ({ children }) => {
   const username = process.env.NEXT_PUBLIC_USERNAME;
+  const router = useRouter();
+  const isInsideBlog = router.query.username === undefined ? false : true;
+
   return (
     <LayoutWrapper>
       <header>
-        <Logo>{username}' Blog</Logo>
+        <Link href={`/`}>
+          <Logo>{username}' Blog</Logo>
+        </Link>
+        <nav>
+          {!isInsideBlog && (
+            <Link href={`/${username}`}>
+              <a>Visit {username}'s Blog</a>
+            </Link>
+          )}
+          {isInsideBlog && (
+            <Link href={`/${username}/write`}>
+              <a>Write</a>
+            </Link>
+          )}
+        </nav>
       </header>
       <main>{children}</main>
       <footer>Can you see me...? I'm Footer Lee</footer>
