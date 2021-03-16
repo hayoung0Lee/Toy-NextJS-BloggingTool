@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import styles from "../../styles/Home.module.css";
 
 const Write = () => {
   const router = useRouter();
@@ -15,7 +14,7 @@ const Write = () => {
     }, 1000);
   }, [id]);
 
-  return <div className={styles.container}>Write Page for {username}</div>;
+  return <div>Write Page for {username}</div>;
 };
 
 export default Write;
