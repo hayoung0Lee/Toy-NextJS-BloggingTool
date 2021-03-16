@@ -60,3 +60,7 @@
     <img src="../memo/img/whatMain.png" width=300>
 
 ## [styled-components](https://styled-components.com/docs)
+
+## 참고자료
+
+- 볼때마다 헷갈리는 [media query](https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries)
