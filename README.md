@@ -17,9 +17,13 @@ Understanding how [this framework](https://nextjs.org) works
   - 블로그 글 CRUD 구현하기
 
 - 구현 하고 싶은 것
+
   - social login 기능 구현하기(https://nextjs.org/docs/authentication)
     - 로그인 관련 이슈에 대해서 파악하기
   - 구현하면서 더 추가할 것 같음
+
+- 나중에 공부 해보고 싶은 것
+  - next.js가 어떻게 페이지 기반 라우팅을 구현하고 있는지 궁금
 
 # Contents
 
