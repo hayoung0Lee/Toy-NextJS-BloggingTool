@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
+import Layout from "../components/layout";
 
 const Index = () => {
   const router = useRouter();
   const { username } = router.query;
-  console.log("index");
-  return <div>index for {username}</div>;
+  return <Layout>index for {username}</Layout>;
 };
 
 export default Index;

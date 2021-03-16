@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
+import Layout from "../components/layout";
 
 const Title = () => {
   const router = useRouter();
   const { username, title } = router.query;
   return (
-    <div>
+    <Layout>
       Title Page for {username}, {title}
-    </div>
+    </Layout>
   );
 };
 

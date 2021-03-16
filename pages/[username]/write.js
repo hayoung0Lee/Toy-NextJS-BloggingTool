@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Layout from "../components/layout";
 
 const Write = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const Write = () => {
     }, 1000);
   }, [id]);
 
-  return <div>Write Page for {username}</div>;
+  return <Layout>Write Page for {username}</Layout>;
 };
 
 export default Write;

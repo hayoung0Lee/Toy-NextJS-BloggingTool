@@ -61,6 +61,16 @@
 
 ## [styled-components](https://styled-components.com/docs)
 
+- [server-side rendering 문제 해결](https://spectrum.chat/next-js/general/quick-question-about-styled-components-ssr~7fb88ab0-037d-49e4-acac-ad52ef347de8)
+- [server side rendering dev](https://dev.to/rsanchezp/next-js-and-styled-components-style-loading-issue-3i68)
+- [styled-components 문서](https://styled-components.com/docs/advanced#server-side-rendering)
+
+서버사이드 렌더링이 될때 styled-components가 먼저 불리지 않기 때문에 문제가 생긴다. styled-components는 서버사이드 렌더링을 지원햔다. 이때 stylesheet rehydration을 한다. App을 서버에서 렌더링할때, `ServerStyleSheet`을 만들고, context API에 style을 주입한다.
+
+## [Environment variable 사용하기](https://nextjs.org/docs/basic-features/environment-variables)
+
+    - `.env.local`은 node(서버)에서만 되는데 `NEXT_PUBLIC`을 붙이면 browser에서도 사용 가능하다
+
 ## 참고자료
 
 - 볼때마다 헷갈리는 [media query](https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries)
