@@ -24,6 +24,7 @@ Understanding how [this framework](https://nextjs.org) works
 # Contents
 
 1. [프로젝트 시작 및 기능 도출하기](./memo/StartingNextProject.md)
+2. [Page 구성하기](./memo/createPage.md)
 
 # Project Architecture
 
