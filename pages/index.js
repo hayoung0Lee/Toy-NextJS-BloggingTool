@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Create Next App</title>
+        <title>Blog Main</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       This is home
