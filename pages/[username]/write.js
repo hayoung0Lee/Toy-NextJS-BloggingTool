@@ -14,7 +14,11 @@ const Write = () => {
     }, 1000);
   }, [id]);
 
-  return <>Write Page for {username}</>;
+  if (!!id) {
+    return <>Write Page for {username} - 수정중</>;
+  } else {
+    return <>Write Page for {username} - 새로작성</>;
+  }
 };
 
 export default Write;

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import MarkDownBody from "../../components/markdownbody";
+import Link from "next/link";
 
 const Title = () => {
   const router = useRouter();
@@ -14,8 +15,11 @@ const Title = () => {
   return (
     <>
       <h2>
-        Title Page for {username}, {title}
+        Read Page for {username}, {title}
       </h2>
+      <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/write?id=${title}`}>
+        <button>edit</button>
+      </Link>
       <MarkDownBody>{markDown}</MarkDownBody>
     </>
   );
