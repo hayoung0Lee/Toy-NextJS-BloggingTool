@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
-import Layout from "../components/layout";
 
 const About = () => {
   const router = useRouter();
   const { username } = router.query;
-  return <Layout>about for {username}</Layout>;
+  return <>about for {username}</>;
 };
 
 export default About;
