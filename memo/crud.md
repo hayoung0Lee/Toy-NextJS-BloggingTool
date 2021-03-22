@@ -90,6 +90,48 @@ export default (req, res) => {
     // DELETE api/posts/:postId
     ```
 
+## [username]/index.js 를 구성하면서 살펴본 getStaticPaths, getStaticProps 그리고 revalidate 속성
+
+- [username]/index.js를 incremental static generation 방식으로 생성하고 싶었다. 왜냐하면 여기서는 블로그의 글을 모두 보여주긴하는데, 그렇다고 내가 글을 매초단위로 생성하는게 아니다보니 적당한 시간에 한번씩 revalidate하면 되겠다고 생각했다.
+
+- 우선 dynamic route를 사용하는 경우에는 어떤 path에 대해서 build를 할지 지정해줘야한다. 그래야 지정한 path에 대해서 build해두기 때문이다.
+
+```javascript
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { username: process.env.NEXT_PUBLIC_USERNAME } }, // See the "paths" section below
+    ],
+    fallback: false, // See the "fallback" section below
+  };
+}
+```
+
+나는 지금은 딱 내이름에 대해서 하나만 build하면되서 이렇게 생성했다. `fallback: false`인 경우에는 여기에 설정한 path외의 요청은 404페이지를 반환하는 것이다. `true`라고 설정하면 build하지 않은 요청이 들어오면 그때서야 build한다.
+
+- `getStaticProps` 각 path에 대해서 data-fetching을 실행한다.
+  - 여기서 revalidate 속성이 있으면 incremental static regeneration 이다.
+  - `revalidate: An optional amount in seconds after which a page re-generation can occur`
+    - 10으로 주면 10초가 지난후에 page regeneration이 발생한다.
+    ```javascript
+    export async function getStaticProps() {
+      const posts = dummy;
+      // const posts = await res.json();
+      console.log("getStatic props");
+      return {
+        props: {
+          posts,
+        },
+        // Next.js will attempt to re-generate the page:
+        // - When a request comes in
+        // - At most once every second
+        revalidate: 10, // 10초설정
+      };
+    }
+    ```
+
+## Tab 컴포넌트 구성
+
 ## 참고자료
 
 - https://velog.io/
