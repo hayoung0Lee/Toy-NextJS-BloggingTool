@@ -1,5 +1,5 @@
 import Head from "next/head";
-import dummy from "./dummy.json";
+import dummy from "../dummy.json";
 import Card from "../components/card";
 import CardLayout from "../components/card-layout";
 import { repeatMultiple } from "../utils/common";
