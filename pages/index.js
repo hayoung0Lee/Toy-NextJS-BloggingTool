@@ -3,6 +3,8 @@ import dummy from "../dummy.json";
 import Card from "../components/card";
 import CardLayout from "../components/card-layout";
 import { repeatMultiple } from "../utils/common";
+import Tab from "../components/tab";
+import TabContent from "../components/tab-content";
 
 export default function Home() {
   return (
@@ -11,13 +13,16 @@ export default function Home() {
         <title>Blog Main</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h3>trending</h3>
-      <CardLayout>
-        {repeatMultiple(dummy, 10).map((data, index) => {
-          return <Card key={index} data={data} />;
-        })}
-      </CardLayout>
+      <Tab>
+        <TabContent title="trending">
+          <CardLayout>
+            {repeatMultiple(dummy, 10).map((data, index) => {
+              return <Card key={index} data={data} />;
+            })}
+          </CardLayout>
+        </TabContent>
+        <TabContent title="newest">second tab</TabContent>
+      </Tab>
     </>
   );
 }
