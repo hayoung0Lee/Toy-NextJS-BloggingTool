@@ -64,6 +64,32 @@ export default (req, res) => {
 
 이 이상으로 파악은 어려운데, api관련 기능 처리관련해서는 `apiResolver` 에서 처리가 일어나고 있다는것을 파악했고, 이제 잘되어있겠구나... 믿고 기능을 개발해보려고 한다.
 
+## CRUD를 위한 Rest api endpoint만들기
+
+- API또한 page를 구성할때와 거의 같다(같은것 같다..)
+
+    <img src="./img/apiFolder.png" width=200>
+
+  - 위처럼 구성하면 `api/posts` 요청은 index.js 파일에서 정의 가능하다.
+  - `api/posts/:postId`는 [postId].js 파일에서 정의할 수 있다.
+  - 이렇게 아래의 api를 정의하고 기능을 구현하려고 한다.
+
+    ```javascript
+    // api/posts/index.js에 정의
+    // GET api/posts
+
+    // GET api/posts?title=[kw]
+
+    // POST api/posts
+
+    // api/posts/[postId].js에 정의
+    // GET api/posts/:postId
+
+    // PUT api/posts/:postId
+
+    // DELETE api/posts/:postId
+    ```
+
 ## 참고자료
 
 - https://velog.io/
