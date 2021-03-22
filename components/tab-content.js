@@ -1,5 +1,5 @@
 const TabContent = ({ children }) => {
-  console.log("Tab", children);
+  // console.log("Tab", children);
   return <div>{children}</div>;
 };
 

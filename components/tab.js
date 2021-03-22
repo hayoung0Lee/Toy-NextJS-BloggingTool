@@ -28,8 +28,8 @@ const Tab = ({ children }) => {
       <TabMenu>
         {children?.map((t, index) => {
           return (
-            <a onClick={() => setTab(index)}>
-              <div key={index}>{t.props.title}</div>
+            <a key={index} onClick={() => setTab(index)}>
+              <div>{t.props.title}</div>
             </a>
           );
         })}

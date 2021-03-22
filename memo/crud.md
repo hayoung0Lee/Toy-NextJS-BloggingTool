@@ -132,6 +132,13 @@ export async function getStaticPaths() {
 
 ## Tab 컴포넌트 구성
 
+## Markdown to html
+
+- https://github.com/jonschlinkert/remarkable
+- https://ourcodeworld.com/articles/read/396/how-to-convert-markdown-to-html-in-javascript-using-remarkable
+
+- dangerouslySetInnerHTML: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+
 ## 참고자료
 
 - https://velog.io/

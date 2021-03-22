@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import Tab from "../../components/tab";
 import TabContent from "../../components/tab-content";
 import dummy from "../../dummy.json";
+import Card from "../../components/card";
+import CardLayout from "../../components/card-layout";
+import { repeatMultiple } from "../../utils/common";
 
 export async function getStaticPaths() {
   return {
@@ -35,7 +38,13 @@ const Index = ({ posts }) => {
     <>
       <h2>Hi, This is {username}' blog</h2>
       <Tab>
-        <TabContent title="Posts">Show posts</TabContent>
+        <TabContent title="Posts">
+          <CardLayout>
+            {repeatMultiple(posts, 4).map((data, index) => {
+              return <Card key={index} data={data} index={index} />;
+            })}
+          </CardLayout>
+        </TabContent>
         <TabContent title="Series">Show series</TabContent>
         <TabContent title="Intro">Intro</TabContent>
       </Tab>
