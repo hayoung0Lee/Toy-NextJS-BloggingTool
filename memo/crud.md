@@ -132,12 +132,22 @@ export async function getStaticPaths() {
 
 ## Tab 컴포넌트 구성
 
-## Markdown to html
+## Read Page
+
+### Markdown to html
 
 - https://github.com/jonschlinkert/remarkable
 - https://ourcodeworld.com/articles/read/396/how-to-convert-markdown-to-html-in-javascript-using-remarkable
 
 - dangerouslySetInnerHTML: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+
+## Create Page
+
+- form: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+
+- form guide: https://developer.mozilla.org/ko/docs/Learn/Forms
+
+- 내가 에디터를 만든 방식에 관해서는 블로그에 따로 정리를 했다. [visit here](https://mytutorials.tistory.com/322)
 
 ## 참고자료
 
