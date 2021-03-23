@@ -1,7 +1,7 @@
 [
   {
     "title": "title",
-    "contents": "contents",
+    "contents": "by default this element is filled with this text\n\n# hello \n* 안녕 test",
     "author": "hayoung"
   }
 ]

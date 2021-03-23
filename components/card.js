@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import MarkDownBody from "./markdownbody";
 
 const CardStyle = styled.div`
   border: 1px solid black;
@@ -14,7 +15,7 @@ const Card = ({ data, index }) => {
     <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/${index}`}>
       <CardStyle>
         <p>title: {data.title}</p>
-        <p>contents: {data.contents}</p>
+        <MarkDownBody>{data.contents}</MarkDownBody>
       </CardStyle>
     </Link>
   );
