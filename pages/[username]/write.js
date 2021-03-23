@@ -23,6 +23,7 @@ const EditorBody = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const Write = () => {
   const router = useRouter();
   const { username, id } = router.query;
@@ -39,18 +40,45 @@ const Write = () => {
   //   }, 1000);
   // }, [id]);
 
+  const handleSubmit = async (event, contents) => {
+    event.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:3000/api/posts", {
+        body: JSON.stringify({
+          contents,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      if (res.status === 200) {
+        // successfully posted
+        // const result = await res.json();
+        // redirect to read page
+        // client side redirect
+        alert("posted!");
+      } else {
+        alert("retry");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <h2>
         Write Page for {username} - {!!id ? `editing...` : `new contents`}
       </h2>
-      <form>
+      <form onSubmit={(event) => handleSubmit(event, contents)}>
         <EditorBody>
           <TextAreaStyle
             name="contents"
             value={contents}
             onInput={(e) => {
-              console.log(e.target.value);
               setContents(e.target.value);
             }}
           ></TextAreaStyle>
