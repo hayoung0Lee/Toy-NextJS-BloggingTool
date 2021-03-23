@@ -9,14 +9,19 @@ const TextAreaStyle = styled.textarea`
   font: 1em sans-serif;
 
   /* To give the same size to all text field */
-  width: 300px;
+  width: 40%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
   /* To harmonize the look & feel of text field border */
   border: 1px solid #999;
-  height: 400px;
+  height: 550px;
   resize: none;
+`;
+
+const EditorBody = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 const Write = () => {
   const router = useRouter();
@@ -25,14 +30,14 @@ const Write = () => {
     "by default this element is filled with this text"
   );
 
-  useEffect(() => {
-    setTimeout(() => {
-      console.log("id", id, typeof id, !!id);
-      if (!!id) {
-        alert("fetch contents");
-      }
-    }, 1000);
-  }, [id]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log("id", id, typeof id, !!id);
+  //     if (!!id) {
+  //       alert("fetch contents");
+  //     }
+  //   }, 1000);
+  // }, [id]);
 
   return (
     <>
@@ -40,13 +45,20 @@ const Write = () => {
         Write Page for {username} - {!!id ? `editing...` : `new contents`}
       </h2>
       <form>
-        <TextAreaStyle
-          name="contents"
-          value={contents}
-          onInput={(e) => setContents(e.target.value)}
-        ></TextAreaStyle>
-        <MarkDownBody>{contents}</MarkDownBody>
-        <div class="button">
+        <EditorBody>
+          <TextAreaStyle
+            name="contents"
+            value={contents}
+            onInput={(e) => {
+              console.log(e.target.value);
+              setContents(e.target.value);
+            }}
+          ></TextAreaStyle>
+          <MarkDownBody width="55%" maxHeight="550">
+            {contents}
+          </MarkDownBody>
+        </EditorBody>
+        <div className="button">
           <button type="submit">Send your message</button>
         </div>
       </form>
