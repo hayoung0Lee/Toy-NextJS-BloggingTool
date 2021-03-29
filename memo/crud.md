@@ -149,6 +149,16 @@ export async function getStaticPaths() {
 
 - 내가 에디터를 만든 방식에 관해서는 블로그에 따로 정리를 했다. [visit here](https://mytutorials.tistory.com/322)
 
+- [next.js의 form](https://nextjs.org/blog/forms)
+
+## Database 달기
+
+이전에는 json으로 테스트만하다가 이제 진짜 제대로 데이터를 생성, 수정, 삭제 해야할 것 같아서 db를 간단하게라도 달아보려고한다.
+
+- sql vs noSQL: https://siyoon210.tistory.com/130
+- rdbms로 구성해서 문서를 저장하는것이 좋을 것 같다.
+-
+
 ## 참고자료
 
 - https://velog.io/
@@ -156,6 +166,10 @@ export async function getStaticPaths() {
 - https://nextjs.org/docs/api-routes/introduction
 
 - How to save markdown
+
   - [DEV: How should markdown be saaved and rendered?](https://dev.to/michael/how-should-markdown-be-saved-and-rendered-51f)
   - [How would you store markdown?](https://www.reddit.com/r/Database/comments/iwvjse/how_would_you_store_markdown/)
   - [What is the best way to store a field that supports markdown in my database when I need to render both HTML and “simple text” views?](https://stackoverflow.com/questions/17250972/what-is-the-best-way-to-store-a-field-that-supports-markdown-in-my-database-when)
+
+- velog: https://github.com/velopert/velog
+  - v2는 여기: https://github.com/velopert/velog-server
