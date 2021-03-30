@@ -43,7 +43,7 @@ const Index = ({ posts }) => {
       <Tab>
         <TabContent title="Posts">
           <CardLayout>
-            {posts.map((data, index) => {
+            {posts?.map((data, index) => {
               return <Card key={index} data={data} index={index} />;
             })}
           </CardLayout>

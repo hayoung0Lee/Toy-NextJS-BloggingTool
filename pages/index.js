@@ -35,7 +35,7 @@ export default function Home({ posts }) {
         <TabContent title="trending">
           {/* 20개 정도 순서대로 보여주기 */}
           <CardLayout>
-            {posts.map((data, index) => {
+            {posts?.map((data, index) => {
               return <Card key={index} data={data} index={index} />;
             })}
           </CardLayout>

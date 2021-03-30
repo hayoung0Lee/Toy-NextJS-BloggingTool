@@ -27,13 +27,12 @@ const EditorBody = styled.div`
 const Write = () => {
   const router = useRouter();
   const { username, id } = router.query;
+  const [isEditMode, setEditMode] = useState(false);
   const [contents, setContents] = useState(
     "by default this element is filled with this text"
   );
 
-  const handleSubmit = async (event, contents) => {
-    event.preventDefault();
-
+  const create = async (contents) => {
     try {
       const res = await fetch("http://localhost:3000/api/posts", {
         body: JSON.stringify({
@@ -57,10 +56,82 @@ const Write = () => {
     }
   };
 
+  const update = async (contents) => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        body: JSON.stringify({
+          contents,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "PATCH",
+      });
+      const result = await res.json();
+
+      if (res.status === 200) {
+        // successfully posted
+        // console.log(result);
+        router.push(`/${username}/${id}`);
+        // alert("update");
+      } else {
+        alert("retry");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    console.log("id", id);
+  };
+
+  const handleSubmit = (event, contents) => {
+    event.preventDefault();
+
+    if (isEditMode) {
+      update(contents);
+    } else {
+      create(contents);
+    }
+  };
+
+  const getUpdateContents = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+      });
+
+      const result = await res.json();
+      console.log(result);
+      if (res.status === 200) {
+        // successfully posted
+        return result.data;
+      } else {
+        alert("retry");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    setEditMode(!!id);
+  }, [id]);
+
+  useEffect(async () => {
+    if (isEditMode) {
+      const result = await getUpdateContents();
+      if (result) {
+        setContents(result[0].contents);
+      }
+    }
+  }, [isEditMode]);
+
   return (
     <>
       <h2>
-        Write Page for {username} - {!!id ? `editing...` : `new contents`}
+        Write Page for {username} - {isEditMode ? `editing...` : `new contents`}
       </h2>
       <form onSubmit={(event) => handleSubmit(event, contents)}>
         <EditorBody>

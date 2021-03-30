@@ -25,7 +25,8 @@ export default async (req, res) => {
         try {
           const post_result = await query(
             "insert",
-            "insert into blog_post(created,modified,username,contents) values($1, $2, $3, $4) returning *",
+            `insert into blog_post(created,modified,username,contents) 
+            values($1, $2, $3, $4) returning *`,
             [now, now, username, body.contents]
           );
           res.status(200).json({ data: post_result[0] });
