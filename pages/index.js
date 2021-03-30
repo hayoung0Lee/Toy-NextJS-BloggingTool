@@ -10,7 +10,7 @@ export async function getStaticProps() {
 
   const get_result = await query(
     "select",
-    "select username, contents from blog_post limit 20" // TODO: 최신 10개 보여주기
+    "select id, username, contents from blog_post limit 20" // TODO: 최신 10개 보여주기
   );
 
   if (!get_result) {

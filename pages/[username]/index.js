@@ -18,7 +18,7 @@ export async function getStaticProps({ params }) {
 
   const get_result = await query(
     "select",
-    `select contents
+    `select id, contents
     from blog_post
     where username='${params.username}'
     limit 20` // TODO: 최신 10개 보여주기

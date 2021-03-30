@@ -8,11 +8,11 @@ const CardStyle = styled.div`
   width: 240px;
   height: 300px;
 `;
-const Card = ({ data, index }) => {
+const Card = ({ data }) => {
   // 'hayoung/1' 이렇게 요청이 간다.
   // console.log(`/${process.env.NEXT_PUBLIC_USERNAME}/${index}`);
   return (
-    <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/${index}`}>
+    <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/${data.id}`}>
       <CardStyle>
         <p>title: {data.title ?? "empty title"}</p>
         <MarkDownBody>{data.contents}</MarkDownBody>

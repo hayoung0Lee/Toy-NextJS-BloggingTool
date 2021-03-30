@@ -192,6 +192,9 @@ insert into blog_user(username, password) values ('hayoung', '1234');
   pg module이 browser에서 호출되면 안되서 browser에 번들되는 파일에 들어가지 않도록 구성[issue](https://github.com/brianc/node-postgres/issues/1440)
 - how to build a fullstack app with next.js prisma and postgreSQL
 
+- [`fallback: true`](https://nextjs.org/docs/basic-features/data-fetching#fallback-true) 를 통해서 build 당시에 없었던것은 점차 생성한다.
+  > when fallback happens, this will NOT result in a 404 page. It will show fallback verson of the page but it will statically generate the requested file. By fallback version of page, it means a page without props. Once generation is done, the browser gets the JSON of the generated path. And this will fill in the places for the props.
+
 ## 참고자료
 
 - https://velog.io/
