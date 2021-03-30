@@ -16,7 +16,7 @@ export default async (req, res) => {
       case "GET": // api/posts
         const get_result = await query(
           "select",
-          "select contents from blog_post"
+          "select username, contents from blog_post limit 10"
         );
         res.status(200).json({ data: get_result });
         break;

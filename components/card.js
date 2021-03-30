@@ -14,7 +14,7 @@ const Card = ({ data, index }) => {
   return (
     <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/${index}`}>
       <CardStyle>
-        <p>title: {data.title}</p>
+        <p>title: {data.title ?? "empty title"}</p>
         <MarkDownBody>{data.contents}</MarkDownBody>
       </CardStyle>
     </Link>
