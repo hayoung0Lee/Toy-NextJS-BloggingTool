@@ -1,20 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { connectToDB } from "../../../utils/common";
-const { Client } = require("pg");
+import { query } from "../../../utils/db";
 
-const connect = () => {
-  const client = new Client({
-    user: "postgres",
-    host: "localhost",
-    database: "blog",
-    password: "1234",
-    port: 5432,
-  });
-
-  client.connect();
-
-  return client;
-};
 export default async (req, res) => {
   // api/posts?title=1 이렇게 사용할 예정
   const username = process.env.NEXT_PUBLIC_USERNAME;
@@ -25,13 +11,10 @@ export default async (req, res) => {
     body,
   } = req;
 
-  const client = connect(); // FIXME db 연결 위치
-
   if (!title) {
     switch (method) {
       case "GET": // api/posts
-        const get_result = await connectToDB(
-          client,
+        const get_result = await query(
           "select",
           "select contents from blog_post"
         );
@@ -39,8 +22,7 @@ export default async (req, res) => {
         break;
       case "POST": // api/posts
         const now = new Date();
-        const post_result = await connectToDB(
-          client,
+        const post_result = await query(
           "insert",
           "insert into blog_post(created,modified,username,contents) values($1, $2, $3, $4) returning *",
           [now, now, username, body.contents]

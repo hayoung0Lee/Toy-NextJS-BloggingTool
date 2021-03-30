@@ -189,6 +189,8 @@ insert into blog_user(username, password) values ('hayoung', '1234');
 ```
 
 - node postgres: https://node-postgres.com/
+  pg module이 browser에서 호출되면 안되서 browser에 번들되는 파일에 들어가지 않도록 구성[issue](https://github.com/brianc/node-postgres/issues/1440)
+- how to build a fullstack app with next.js prisma and postgreSQL
 
 ## 참고자료
 
