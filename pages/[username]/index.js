@@ -1,10 +1,8 @@
 import { useRouter } from "next/router";
 import Tab from "../../components/tab";
 import TabContent from "../../components/tab-content";
-import dummy from "../../dummy.json";
 import Card from "../../components/card";
 import CardLayout from "../../components/card-layout";
-import { repeatMultiple } from "../../utils/common";
 
 export async function getStaticPaths() {
   return {
@@ -15,13 +13,19 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps() {
-  const posts = dummy;
-  // const posts = await res.json();
-  console.log("getStatic props");
+export async function getStaticProps({ params }) {
+  const { query } = require("../../utils/db");
+
+  const get_result = await query(
+    "select",
+    `select contents
+    from blog_post
+    where username='${params.username}'
+    limit 20` // TODO: 최신 10개 보여주기
+  );
   return {
     props: {
-      posts,
+      posts: get_result,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
@@ -33,14 +37,13 @@ export async function getStaticProps() {
 const Index = ({ posts }) => {
   const router = useRouter();
   const { username } = router.query;
-  console.log("posts", posts);
   return (
     <>
       <h2>Hi, This is {username}' blog</h2>
       <Tab>
         <TabContent title="Posts">
           <CardLayout>
-            {repeatMultiple(posts, 4).map((data, index) => {
+            {posts.map((data, index) => {
               return <Card key={index} data={data} index={index} />;
             })}
           </CardLayout>
