@@ -1,11 +1,8 @@
 import Head from "next/head";
-import dummy from "../dummy.json";
 import Card from "../components/card";
 import CardLayout from "../components/card-layout";
-import { repeatMultiple } from "../utils/common";
 import Tab from "../components/tab";
 import TabContent from "../components/tab-content";
-import Link from "next/link";
 
 export async function getStaticProps() {
   // 이부분은 서버에서만 동작한다
