@@ -35,6 +35,16 @@ const insert = async (client, text, values) => {
   }
 };
 
+const delete_row = async (client, text) => {
+  if (!text) return;
+  try {
+    const res = await client.query(text);
+    return res.rows;
+  } catch (err) {
+    console.log(err.stack);
+  }
+};
+
 const query = async (command, text, values) => {
   const client = connect();
   switch (command) {
@@ -42,6 +52,8 @@ const query = async (command, text, values) => {
       return select(client, text);
     case "insert":
       return insert(client, text, values);
+    case "delete":
+      return delete_row(client, text);
     default:
       console.log("invalid command");
   }

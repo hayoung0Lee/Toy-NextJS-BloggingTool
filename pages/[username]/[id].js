@@ -23,7 +23,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      post: get_result[0],
+      post: get_result.length <= 0 ? null : get_result[0],
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
@@ -35,12 +35,38 @@ export async function getStaticProps({ params }) {
 const Title = ({ post }) => {
   const router = useRouter();
   const { username, id } = router.query;
-  // const markDown = `# 안녕 \n
-  // ## Writer \n
-  // ${username} wrote it \n
-  // ## title \n
-  // title is ${title}
-  // `; // TODO 나중에 이거 실제로 데이터 가져오는 구조로 바꾸기
+
+  const handleDelete = async (event, id) => {
+    event.preventDefault();
+
+    try {
+      const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "DELETE",
+      });
+
+      if (res.status === 200) {
+        // successfully posted
+        // alert("delete");
+        router.push(`/${username}`);
+      } else {
+        alert("retry");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  if (!post) {
+    return (
+      <>
+        <h2>not existing</h2>
+      </>
+    );
+  }
+
   const markDown = post?.contents;
 
   return (
@@ -48,6 +74,7 @@ const Title = ({ post }) => {
       <h2>
         Read Page for {username}, {id}
       </h2>
+      <button onClick={(event) => handleDelete(event, id)}>delete</button>
       <Link href={`/${process.env.NEXT_PUBLIC_USERNAME}/write?id=${id}`}>
         <button>edit</button>
       </Link>
