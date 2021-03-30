@@ -22,12 +22,17 @@ export default async (req, res) => {
         break;
       case "POST": // api/posts
         const now = new Date();
-        const post_result = await query(
-          "insert",
-          "insert into blog_post(created,modified,username,contents) values($1, $2, $3, $4) returning *",
-          [now, now, username, body.contents]
-        );
-        res.status(200).json({ data: post_result });
+        try {
+          const post_result = await query(
+            "insert",
+            "insert into blog_post(created,modified,username,contents) values($1, $2, $3, $4) returning *",
+            [now, now, username, body.contents]
+          );
+          res.status(200).json({ data: post_result[0] });
+        } catch (err) {
+          console.log(err);
+          res.status(500).json({ data: "error" });
+        }
         break;
       case "DELETE":
         res.status(200).json({ data: `delete every data` });

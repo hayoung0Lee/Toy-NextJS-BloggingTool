@@ -31,15 +31,6 @@ const Write = () => {
     "by default this element is filled with this text"
   );
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log("id", id, typeof id, !!id);
-  //     if (!!id) {
-  //       alert("fetch contents");
-  //     }
-  //   }, 1000);
-  // }, [id]);
-
   const handleSubmit = async (event, contents) => {
     event.preventDefault();
 
@@ -53,13 +44,11 @@ const Write = () => {
         },
         method: "POST",
       });
+      const result = await res.json();
 
       if (res.status === 200) {
         // successfully posted
-        // const result = await res.json();
-        // redirect to read page
-        // client side redirect
-        alert("posted!");
+        router.push(`/${username}/${result.data.id}`);
       } else {
         alert("retry");
       }
