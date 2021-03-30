@@ -157,7 +157,38 @@ export async function getStaticPaths() {
 
 - sql vs noSQL: https://siyoon210.tistory.com/130
 - rdbms로 구성해서 문서를 저장하는것이 좋을 것 같다.
--
+
+간단하게 구성할것이긴 하지만, 그래도 어떤 db를 사용하면 좋을지 고민했는데, 나는 간단하게 article에 대해서 정보를 저장하는 post table과 user가 지금은 한명이지만 이에 대한 정보를 저장하는 user table만을 가지고 시작하려고 한다.
+
+- erd는 [이곳](https://www.erdcloud.com/)에서 그렸다. 그릴때는 [여기](https://codecow.tistory.com/1)를 참고했다.
+- post의 contents를 저장할때 길이 제한이 어떻게 되나해서 찾아본 [자료](https://www.postgresql.org/docs/9.6/datatype-character.html). text의경우 길이가 unlimited라고 하나 물리적으로 1gb까지 가능하다고 한다.
+
+<img src="./img/erd_v1.png" width=300>
+
+- docker file: `docker exec -it postgres-db psql --username postgres`
+- adminer를 사용
+
+```
+reate table blog_user (
+  username varchar(20) not null,
+  password varchar(20) not null,
+  primary key (username)
+);
+
+create table blog_post (
+  id serial not null,
+  created timestamp,
+  modified timestamp,
+  username varchar(20) not null,
+  contents text,
+  primary key (id),
+  foreign key (username) references blog_user (username)
+);
+
+insert into blog_user(username, password) values ('hayoung', '1234');
+```
+
+- node postgres: https://node-postgres.com/
 
 ## 참고자료
 
