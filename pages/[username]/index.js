@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
     `select id, contents
     from blog_post
     where username='${params.username}'
-    limit 20` // TODO: 최신 10개 보여주기
+    ` // TODO: 최신 10개 보여주기
   );
   return {
     props: {
