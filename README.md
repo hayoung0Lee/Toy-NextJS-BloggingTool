@@ -19,6 +19,13 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 You can run my project as develop mode following the commands below.
 
 ```
+// get this docker-compose file: https://github.com/hayoung0Lee/docker-memo/blob/main/postgres/docker-compose.yml
+docker-compose up --build
+
+// make tables...
+going to add this part soon
+
+// run this next.js app
 git clone 'this project'
 npm install
 npm run dev
