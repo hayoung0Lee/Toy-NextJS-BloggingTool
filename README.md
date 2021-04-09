@@ -13,6 +13,7 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 - redis
 - aws
 - typescript
+- lodash
 
 # Run on your machine and customize it as you wish
 
@@ -33,16 +34,19 @@ npm run dev
 
 # How I developed this website
 
-1. [프로젝트 시작 및 기능 도출하기](./memo/StartingNextProject.md)
-2. [Page 구성하기](./memo/createPage.md)
-3. [화면 구성하기](./memo/styling.md)
-4. [CRUD를 만들어보자](./memo/crud.md)
-
-<!-- 4. [api 생성하기](./memo/api.md) -->
-<!-- 5. [무한스크롤할때 throttle, 컨텐츠 검색할때 deboune 등 적용하기](./memo/fe-technique.md) -->
-<!-- 6. [이미지 최적화 등] -->
-
-<!-- # Project Architecture -->
+1. Typescript
+2. loadsh
+3. Make my package
+4. Deriving features
+5. Page
+6. Styling
+7. API
+<!-- 8. Authentication
+8. Database
+9. Redis
+10. CRUD
+11. Throttle, Debounce
+12. Deploy with AWS -->
 
 # Reference
 
