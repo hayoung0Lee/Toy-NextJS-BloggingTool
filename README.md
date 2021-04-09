@@ -34,8 +34,8 @@ npm run dev
 
 # How I developed this website
 
-1. Typescript
-2. loadsh
+1. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary)
+2. Functional Programming and Lodash
 3. Make my package
 4. Deriving features
 5. Page
