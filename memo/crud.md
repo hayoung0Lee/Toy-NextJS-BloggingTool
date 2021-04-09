@@ -193,7 +193,10 @@ insert into blog_user(username, password) values ('hayoung', '1234');
 - how to build a fullstack app with next.js prisma and postgreSQL
 
 - [`fallback: true`](https://nextjs.org/docs/basic-features/data-fetching#fallback-true) 를 통해서 build 당시에 없었던것은 점차 생성한다.
+
   > when fallback happens, this will NOT result in a 404 page. It will show fallback verson of the page but it will statically generate the requested file. By fallback version of page, it means a page without props. Once generation is done, the browser gets the JSON of the generated path. And this will fill in the places for the props.
+
+- [Next.js Tutorial - Part 4 | API Routes using SQL Database](https://www.youtube.com/watch?v=PxiQDo0CmDE&ab_channel=BrunoAntunes)
 
 ## 참고자료
 

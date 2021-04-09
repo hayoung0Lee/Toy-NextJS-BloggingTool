@@ -1,43 +1,41 @@
-# Toy-NextJS-BloggingTool
+# Toy-NextJS-BloggingTool(v1)
 
-Toy-NextJS-BloggingTool
+The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js works, especially how SSR, Static generation, client-side rendering work all together in this framework. I was inspired a lot by [Velog project](https://github.com/velopert/velog).
 
-# Goal
+- visit [Next.js](https://nextjs.org) to find more about this framework.
 
-Understanding how [this framework](https://nextjs.org) works
+# Project stack
 
-- Next.js의 기본 개념 이해하기
+- Next.js
+- styled-component
+- redux
+- postgresql
+- redis
+- aws
+- typescript
 
-  - SSR, Static generation, client side rendering 의 차이점 이해 및 적용
+# Run on your machine and customize it as you wish
 
-# Features
+You can run my project as develop mode following the commands below.
 
-- 구현 해볼 것
+```
+git clone 'this project'
+npm install
+npm run dev
+```
 
-  - 블로그 글 CRUD 구현하기
-
-- 구현 하고 싶은 것
-
-  - social login 기능 구현하기(https://nextjs.org/docs/authentication)
-    - 로그인 관련 이슈에 대해서 파악하기
-  - 구현하면서 더 추가할 것 같음
-
-- 나중에 공부 해보고 싶은 것
-  - next.js가 어떻게 페이지 기반 라우팅을 구현하고 있는지 궁금
-
-# Contents
+# How I developed this website
 
 1. [프로젝트 시작 및 기능 도출하기](./memo/StartingNextProject.md)
 2. [Page 구성하기](./memo/createPage.md)
 3. [화면 구성하기](./memo/styling.md)
 4. [CRUD를 만들어보자](./memo/crud.md)
-   <!-- 4. [api 생성하기](./memo/api.md) -->
-   <!-- 5. [무한스크롤할때 throttle, 컨텐츠 검색할때 deboune 등 적용하기](./memo/fe-technique.md) -->
-   <!-- 6. [이미지 최적화 등] -->
 
-# Project Architecture
+<!-- 4. [api 생성하기](./memo/api.md) -->
+<!-- 5. [무한스크롤할때 throttle, 컨텐츠 검색할때 deboune 등 적용하기](./memo/fe-technique.md) -->
+<!-- 6. [이미지 최적화 등] -->
 
-# How to run my project
+<!-- # Project Architecture -->
 
 # Reference
 
