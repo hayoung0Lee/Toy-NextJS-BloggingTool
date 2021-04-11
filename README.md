@@ -13,7 +13,6 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 - redis
 - aws
 - typescript
-- lodash
 
 # Run on your machine and customize it as you wish
 
@@ -34,14 +33,14 @@ npm run dev
 
 # How I developed this website
 
-1. Deriving features- [[toy blog service] Next.js 기반 서비스 기능 도출 과정](https://mytutorials.tistory.com/341)
+1. Deriving features - [[toy blog service] Next.js 기반 서비스 기능 도출 과정](https://mytutorials.tistory.com/341)
    - summary:
      - What I want to gain from this project are these four things
        1. Learning how to do CRUD using Next.js with an understanding of Server-Side Rendering, Incremental Static Generation, Static Generation, Client-Side Rendering
        2. Learning how to use database(Postgres and Redis)
        3. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
        4. Making social login features and learning how to build a feature for showing trending and newest posts.
-2. Page
+2. Page - [[toy blog service] Next.js의 Pages 이해하기](https://mytutorials.tistory.com/342)
 3. API
 4. Database(Custom Server)
 5. Make my package
