@@ -38,8 +38,8 @@ npm run dev
    - summary:
      - What I want to gain from this project are these four things
        1. Learning how to do CRUD using Next.js with an understanding of Server-Side Rendering, Incremental Static Generation, Static Generation, Client-Side Rendering
-       2. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
-       3. Learning how to use database(Postgres and Redis)
+       2. Learning how to use database(Postgres and Redis)
+       3. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
        4. Making social login features and learning how to build a feature for showing trending and newest posts.
 2. Page
 3. API
