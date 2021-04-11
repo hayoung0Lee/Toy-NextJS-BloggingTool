@@ -11,8 +11,8 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 - redux
 - postgresql
 - redis
-- aws
 - typescript
+- aws
 
 # Run on your machine and customize it as you wish
 
