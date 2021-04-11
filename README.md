@@ -1,6 +1,6 @@
 # Toy-NextJS-BloggingTool(v1)
 
-The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js works, especially how SSR, Static generation, client-side rendering work all together in this framework. I was inspired a lot by [Velog project](https://github.com/velopert/velog).
+The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js works, especially how Server-Side Rendering, Incremental Static Generation, Static Generation, Client-Side Rendering work all together in this framework. I was inspired a lot by [Velog project](https://github.com/velopert/velog).
 
 - visit [Next.js](https://nextjs.org) to find more about this framework.
 
