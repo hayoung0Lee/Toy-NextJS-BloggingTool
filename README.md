@@ -34,19 +34,27 @@ npm run dev
 
 # How I developed this website
 
-1. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary)
-2. Functional Programming and Lodash
-3. Make my package
-4. Deriving features
-5. Page
+1. Deriving features- [[toy blog service] Next.js 기반 서비스 기능 도출 과정](https://mytutorials.tistory.com/341)
+   - summary:
+     - What I want to gain from this project are these four things
+       1. Learning how to do CRUD using Next.js with an understanding of Server-Side Rendering, Incremental Static Generation, Static Generation, Client-Side Rendering
+       2. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
+       3. Learning how to use database(Postgres and Redis)
+       4. Making social login features and learning how to build a feature for showing trending and newest posts.
+2. Page
+3. API
+4. Database(Custom Server)
+5. Make my package
 6. Styling
-7. API
+7. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary)
+8. webpack:
+
 <!-- 8. Authentication
-8. Database
-9. Redis
-10. CRUD
-11. Throttle, Debounce
-12. Deploy with AWS -->
+1. Database
+2. Redis
+3.  CRUD
+4.  Throttle, Debounce
+5.  Deploy with AWS -->
 
 # Reference
 
