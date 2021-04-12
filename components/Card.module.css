@@ -11,4 +11,5 @@
   border: 1px solid #17252a;
   width: var(--my-card-width);
   height: var(--my-card-height);
+  cursor: pointer;
 }
