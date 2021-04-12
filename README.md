@@ -7,11 +7,10 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 # Project stack
 
 - Next.js
-- styled-component
+- typescript
 - redux
 - postgresql
 - redis
-- typescript
 - aws
 
 # Run on your machine and customize it as you wish

@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --my-header-height: 65px;
+}
+
+li {
+  list-style: none;
+}
+
+/* disablign text-select: https://www.arungudelli.com/tutorial/css/disable-text-selection-in-html-using-user-select-css-property/#:~:text=In%20Google%20Chrome%3A,Google%20Chrome%20and%20Opera%20Browsers. */
+.disable-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -ms-user-select: none;
+}
