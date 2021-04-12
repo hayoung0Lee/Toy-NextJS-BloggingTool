@@ -39,7 +39,11 @@ npm run dev
        2. Learning how to use database(Postgres and Redis)
        3. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
        4. Making social login features and learning how to build a feature for showing trending and newest posts.
-2. Page - [[toy blog service] Next.js의 Pages 이해하기](https://mytutorials.tistory.com/342)
+2. Page - [[toy blog service] Next.js의 Pages 이해하기(간단한 Typescript설정)](https://mytutorials.tistory.com/342)
+
+   - summary:
+     - In this post, I wrote things that I learned mainly about `Pages` and `Routing`
+
 3. API
 4. Database(Custom Server)
 5. Make my package
