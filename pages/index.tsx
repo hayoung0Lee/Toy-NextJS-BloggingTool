@@ -1,6 +1,16 @@
 import Head from "next/head";
 import React from "react";
 import CardViewer from "../components/CardViewer";
+import { PostType } from "../utils/types";
+
+const data: PostType[] = [
+  { id: 1, title: "test", content: "content" },
+  { id: 2, title: "test", content: "content" },
+  { id: 3, title: "test", content: "content" },
+  { id: 4, title: "test", content: "content" },
+  { id: 5, title: "test", content: "content" },
+  { id: 6, title: "test", content: "content" },
+];
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +20,7 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Blog Main - trending, latest</h1>
-      <CardViewer data={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]} />
+      <CardViewer data={data} />
     </div>
   );
 };

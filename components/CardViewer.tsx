@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./Card.module.css";
 import Card from "./Card";
+import { PostType } from "../utils/types";
 
 interface Props {
-  data: number[];
+  data: PostType[];
 }
 
 const CardViewer: React.FC<Props> = ({ data }) => {
