@@ -1,0 +1,14 @@
+.cardViewer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(var(--my-card-width), 1fr));
+  grid-template-rows: repeat(auto-fit, var(--my-card-height));
+  grid-auto-rows: var(--my-card-height);
+  justify-items: center;
+}
+
+.card {
+  border: 1px solid #17252a;
+  width: var(--my-card-width);
+  height: var(--my-card-height);
+}

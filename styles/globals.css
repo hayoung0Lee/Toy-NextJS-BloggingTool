@@ -15,10 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-:root {
-  --my-header-height: 65px;
-}
-
 li {
   list-style: none;
 }
@@ -30,4 +26,11 @@ li {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -ms-user-select: none;
+}
+
+/* css variables */
+:root {
+  --my-header-height: 65px;
+  --my-card-width: 300px;
+  --my-card-height: 350px;
 }
