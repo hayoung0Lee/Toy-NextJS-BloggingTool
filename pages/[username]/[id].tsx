@@ -1,16 +1,16 @@
 import Head from "next/head";
 import React from "react";
 
-const Home: React.FC = () => {
+const UserPost: React.FC = () => {
   return (
     <div>
       <Head>
-        <title>ToyBlog Home</title>
+        <title>UserPost</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>Blog Main - trending, latest</div>
+      <div>UserPost</div>
     </div>
   );
 };
 
-export default Home;
+export default UserPost;
