@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import ActiveLink from "./ActiveLink";
+import styles from "./Header.module.css";
 
 const Layout: React.FC = () => {
   // TODO: Redux로 전역상태 관리해서 현재 어디있는지 파악
@@ -8,7 +10,7 @@ const Layout: React.FC = () => {
   const [isOpen, toggleDropDown] = useState<boolean>(false);
 
   return (
-    <header>
+    <header className={styles.header}>
       <div>
         <Link href="/">
           <a>Logo</a>
@@ -20,14 +22,17 @@ const Layout: React.FC = () => {
           <ul>
             <li>
               {/* TODO: hayoung -> general username */}
-              <Link href="/hayoung">
+              <ActiveLink href="/hayoung" activeClassName={styles.selected}>
                 <a>To my ToyBlog</a>
-              </Link>
+              </ActiveLink>
             </li>
             <li>
-              <Link href="/hayoung/write">
+              <ActiveLink
+                href="/hayoung/write"
+                activeClassName={styles.selected}
+              >
                 <a>New Post</a>
-              </Link>
+              </ActiveLink>
             </li>
             <li>Login/Logout</li>
           </ul>

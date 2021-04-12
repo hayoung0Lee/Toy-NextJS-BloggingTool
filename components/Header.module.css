@@ -1,0 +1,53 @@
+.header {
+  background-color: #3aafa9;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 상단 우측 setting button style */
+.header div:last-child {
+  position: relative;
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.header div:last-child span {
+  background-color: #17252a;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header div:last-child ul {
+  position: absolute;
+  top: calc(var(--my-header-height) - 6px);
+  margin: 0;
+  width: 150px;
+  background-color: #feffff;
+  border: 1px solid #17252a;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.header div:last-child ul li {
+  height: 50px;
+  border-top: 1px solid #17252a;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+/* 상단 우측 setting button style 끝 */
+
+.selected {
+  font-weight: bold;
+}
