@@ -3,6 +3,7 @@ import React from "react";
 import CardViewer from "../components/CardViewer";
 import { PostType, ContentsType } from "../utils/types";
 import { GetStaticProps } from "next";
+import { openJsonFile } from "../utils/common";
 
 const getOnlyContentsAndSort = (data: ContentsType): PostType[] => {
   let result: PostType[] = [];
@@ -22,12 +23,7 @@ const getOnlyContentsAndSort = (data: ContentsType): PostType[] => {
 
 // Incremental Static Regeneration
 export const getStaticProps: GetStaticProps = async (context) => {
-  const fs = require("fs").promises;
-  const jsonFile = await fs.readFile("./utils/testDB.json");
-  const jsonData = JSON.parse(jsonFile);
-
-  console.log(jsonData);
-
+  const jsonData = await openJsonFile();
   const data: PostType[] = getOnlyContentsAndSort(jsonData["contents"]);
 
   return {
