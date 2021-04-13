@@ -39,13 +39,17 @@ npm run dev
        2. Learning how to use database(Postgres and Redis)
        3. Learning how to make my simple package by building Markdown Viewer Package and applying it to this project
        4. Making social login features and learning how to build a feature for showing trending and newest posts.
-2. Page - [[toy blog service] Next.js의 Pages 이해하기(간단한 Typescript설정)](https://mytutorials.tistory.com/342)
+2. Page
 
-   - summary:
-     - In this post, I wrote things that I learned mainly about `Pages` and `Routing`
+   1. [[toy blog service] Next.js의 Pages 이해하기(간단한 Typescript설정)](https://mytutorials.tistory.com/342)
+      - summary:
+        - In this post, I wrote things that I learned mainly about `Pages` and `Routing`
+   2. [[toy blog service] 각페이지를 어떻게 렌더링할지...](https://mytutorials.tistory.com/345)
+   3. [[toy blog service] Intro Page와 Index 페이지를 통해서 살펴보는 Static Generation과 Incremental Static Regeneration차이](https://mytutorials.tistory.com/346)
 
 3. API
-4. Database(Custom Server)
+4. Database(Custom Server):
+   1. https://www.youtube.com/watch?v=PxiQDo0CmDE&list=PLYSZyzpwBEWSQsrukurP09ksi49H9Yj40&index=5&ab_channel=BrunoAntunes
 5. Make my package
 6. Styling
 7. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary)
@@ -58,7 +62,14 @@ npm run dev
 4.  Throttle, Debounce
 5.  Deploy with AWS -->
 
+# Important
+
+- getStaticProps: for static build page - [visit](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+
 # Reference
+
+- [Next.js Building a Car Trader Application](https://www.youtube.com/watch?v=Hy4Por0yfqE&list=PLYSZyzpwBEWTt-0uuxAcSrJmMlnD9Yuz3&ab_channel=BrunoAntunes)
+- [How to Build a Fullstack App with Next.js, Prisma, and PostgreSQL](https://vercel.com/guides/nextjs-prisma-postgres)
 
 # License
 

@@ -10,7 +10,7 @@ interface Props {
 const CardViewer: React.FC<Props> = ({ data }) => {
   return (
     <div className={styles.cardViewer}>
-      {data.map((d, index) => {
+      {data?.map((d, index) => {
         return <Card key={index} d={d} />;
       })}
     </div>

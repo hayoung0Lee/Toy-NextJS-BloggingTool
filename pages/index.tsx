@@ -1,18 +1,48 @@
 import Head from "next/head";
 import React from "react";
 import CardViewer from "../components/CardViewer";
-import { PostType } from "../utils/types";
+import { PostType, ContentsType } from "../utils/types";
+import { GetStaticProps } from "next";
 
-const data: PostType[] = [
-  { id: 1, title: "test", content: "content" },
-  { id: 2, title: "test", content: "content" },
-  { id: 3, title: "test", content: "content" },
-  { id: 4, title: "test", content: "content" },
-  { id: 5, title: "test", content: "content" },
-  { id: 6, title: "test", content: "content" },
-];
+const getOnlyContentsAndSort = (data: ContentsType): PostType[] => {
+  let result: PostType[] = [];
 
-const Home: React.FC = () => {
+  // console.log(Object.entries(data));
+  for (const [author, post] of Object.entries(data)) {
+    // console.log(author, post);
+    result = [...result, ...post];
+  }
+
+  result.sort(function (a: PostType, b: PostType) {
+    return -(a.viewCount - b.viewCount); // 내림차순
+  });
+
+  return result;
+};
+
+// Incremental Static Regeneration
+export const getStaticProps: GetStaticProps = async (context) => {
+  const fs = require("fs").promises;
+  const jsonFile = await fs.readFile("./utils/testDB.json");
+  const jsonData = JSON.parse(jsonFile);
+
+  console.log(jsonData);
+
+  const data: PostType[] = getOnlyContentsAndSort(jsonData["contents"]);
+
+  return {
+    props: {
+      data,
+    }, // will be passed to the page component as props
+    revalidate: 1,
+  };
+};
+
+interface Props {
+  data: PostType[];
+}
+
+const Home: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <Head>
