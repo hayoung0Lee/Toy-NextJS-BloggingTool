@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+.leftWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 150px;
+}
+
 /* 상단 우측 setting button style */
 .header div:last-child {
   position: relative;

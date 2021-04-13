@@ -11,10 +11,17 @@ const Layout: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <div>
-        <Link href="/">
-          <a>Logo</a>
-        </Link>
+      <div className={styles.leftWrapper}>
+        <div className="disable-select">
+          <Link href="/">
+            <a>Logo</a>
+          </Link>
+        </div>
+        <button className="disable-select">
+          <Link href="/intro">
+            <a>Intro</a>
+          </Link>
+        </button>
       </div>
       <div className="disable-select">
         <span onClick={() => toggleDropDown(!isOpen)}>Setting</span>
