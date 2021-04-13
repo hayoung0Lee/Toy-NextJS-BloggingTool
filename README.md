@@ -47,6 +47,7 @@ npm run dev
    2. [[toy blog service] 각페이지를 어떻게 렌더링할지...](https://mytutorials.tistory.com/345)
    3. [[toy blog service] Intro Page와 Index 페이지를 통해서 살펴보는 Static Generation과 Incremental Static Regeneration차이](https://mytutorials.tistory.com/346)
    4. [[toy blog service] Dynamic route를 가진 페이지에서 getStaticProps를 하려면 getStaticPaths가 필요하다!](https://mytutorials.tistory.com/347)
+   5. [[toy blog service] Preview Mode 이해하기](https://mytutorials.tistory.com/348)
 
 3. API
 4. Database(Custom Server):
