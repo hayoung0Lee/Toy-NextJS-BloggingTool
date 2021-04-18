@@ -53,6 +53,7 @@ npm install hayoung-markdown@latest // this is my markdown package
    3. [[toy blog service] Intro Page와 Index 페이지를 통해서 살펴보는 Static Generation과 Incremental Static Regeneration차이](https://mytutorials.tistory.com/346)
    4. [[toy blog service] Dynamic route를 가진 페이지에서 getStaticProps를 하려면 getStaticPaths가 필요하다!](https://mytutorials.tistory.com/347)
    5. [[toy blog service] Preview Mode 이해하기](https://mytutorials.tistory.com/348)
+   6. [[toy blog service] getServerSideProps 이용하기](https://mytutorials.tistory.com/352)
 
 3. Making package & Learning Webpack
 
@@ -60,7 +61,7 @@ npm install hayoung-markdown@latest // this is my markdown package
    2. [[toy blog service] React Component를 Package화 하기(hayoung-markdown)](https://mytutorials.tistory.com/351)
 
 4. API & Database(Custom Server):
-   <!-- 1. https://www.youtube.com/watch?v=PxiQDo0CmDE&list=PLYSZyzpwBEWSQsrukurP09ksi49H9Yj40&index=5&ab_channel=BrunoAntunes -->
+
 5. Deploying with AWS
 
 <!-- # Important

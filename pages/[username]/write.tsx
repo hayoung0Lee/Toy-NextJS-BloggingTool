@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+import { GetServerSideProps } from "next";
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import("hayoung-markdown").then((mod) => mod.App),
@@ -9,8 +10,36 @@ const DynamicComponentWithNoSSR = dynamic(
   }
 );
 
-const UserWrite: React.FC = () => {
-  const [contents, setContents] = useState<string>("");
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const articleId = context.query.id ? context.query.id : undefined;
+
+  if (!articleId) {
+    const data = "";
+    return {
+      props: {
+        data,
+      },
+    };
+  }
+
+  const data = `Update Article ${articleId}`;
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+interface Props {
+  data: string;
+}
+
+const UserWrite: React.FC<Props> = ({ data }) => {
+  const contents = data;
+
+  const handleTrigger = (str: string) => {
+    return str;
+  };
 
   return (
     <div>
@@ -19,14 +48,11 @@ const UserWrite: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {process.browser ? (
-        // <App passedContents={contents} passedSetContents={setContents} />
         <DynamicComponentWithNoSSR
           passedContents={contents}
-          passedSetContents={setContents}
+          handleTrigger={handleTrigger}
         />
-      ) : (
-        <div></div>
-      )}
+      ) : null}
     </div>
   );
 };
