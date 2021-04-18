@@ -55,24 +55,17 @@ npm install hayoung-markdown@latest // this is my markdown package
    5. [[toy blog service] Preview Mode 이해하기](https://mytutorials.tistory.com/348)
 
 3. Making package & Learning Webpack
+
    1. [[toy blog service] Webpack, TypeScript와 React(Babel은 천천히!)](https://mytutorials.tistory.com/350)
    2. [[toy blog service] React Component를 Package화 하기(hayoung-markdown)](https://mytutorials.tistory.com/351)
-4. Deploying with AWS
-5. API
-6. Database(Custom Server):
-   1. https://www.youtube.com/watch?v=PxiQDo0CmDE&list=PLYSZyzpwBEWSQsrukurP09ksi49H9Yj40&index=5&ab_channel=BrunoAntunes
 
-<!-- 6. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary) -->
-<!-- 8. Authentication
-7. Database
-8. Redis
-9. CRUD
-10. Throttle, Debounce
-11. Deploy with AWS -->
+4. API & Database(Custom Server):
+   <!-- 1. https://www.youtube.com/watch?v=PxiQDo0CmDE&list=PLYSZyzpwBEWSQsrukurP09ksi49H9Yj40&index=5&ab_channel=BrunoAntunes -->
+5. Deploying with AWS
 
-# Important
+<!-- # Important
 
-- getStaticProps: for static build page - [visit](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- getStaticProps: for static build page - [visit](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) -->
 
 # Reference
 
