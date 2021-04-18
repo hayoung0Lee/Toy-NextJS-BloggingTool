@@ -4,6 +4,8 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 
 - visit [Next.js](https://nextjs.org) to find more about this framework.
 
+- also, in this project I'm using my custom react component package, `hayoung-markdown`. Please check [this package](https://github.com/hayoung0Lee/hayoung-markdown).
+
 # Project stack
 
 - Next.js
@@ -28,6 +30,9 @@ going to add this part soon
 git clone 'this project'
 npm install
 npm run dev
+
+// when you have to update hayong-markdown package
+npm install hayoung-markdown@latest // this is my markdown package
 ```
 
 # How I developed this website
@@ -49,20 +54,21 @@ npm run dev
    4. [[toy blog service] Dynamic route를 가진 페이지에서 getStaticProps를 하려면 getStaticPaths가 필요하다!](https://mytutorials.tistory.com/347)
    5. [[toy blog service] Preview Mode 이해하기](https://mytutorials.tistory.com/348)
 
-3. API
-4. Database(Custom Server):
+3. Making package & Learning Webpack
+   1. [[toy blog service] Webpack, TypeScript와 React(Babel은 천천히!)](https://mytutorials.tistory.com/350)
+   2. [[toy blog service] React Component를 Package화 하기(hayoung-markdown)](https://mytutorials.tistory.com/351)
+4. Deploying with AWS
+5. API
+6. Database(Custom Server):
    1. https://www.youtube.com/watch?v=PxiQDo0CmDE&list=PLYSZyzpwBEWSQsrukurP09ksi49H9Yj40&index=5&ab_channel=BrunoAntunes
-5. Make my package
-6. Styling
-7. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary)
-8. webpack:
 
+<!-- 6. Typescript: [Typescript-Diary](https://github.com/hayoung0Lee/Typescript-Diary) -->
 <!-- 8. Authentication
-1. Database
-2. Redis
-3.  CRUD
-4.  Throttle, Debounce
-5.  Deploy with AWS -->
+7. Database
+8. Redis
+9. CRUD
+10. Throttle, Debounce
+11. Deploy with AWS -->
 
 # Important
 
