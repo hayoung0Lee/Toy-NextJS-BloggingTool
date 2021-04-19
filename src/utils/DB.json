@@ -1,0 +1,21 @@
+{
+  "users": [{ "userId": "hayoung", "password": "1234" }],
+  "articles": {
+    "hayoung": [
+      {
+        "title": "title!!!",
+        "contents": "teststststs",
+        "viewCount": 1,
+        "author": "hayoung",
+        "articleId": "1"
+      }
+    ]
+  },
+  "intro": [
+    { "question": "what is this?", "answer": "this is toy blog service" },
+    {
+      "question": "which framework is this service using",
+      "answer": "This project is based on Next.js"
+    }
+  ]
+}

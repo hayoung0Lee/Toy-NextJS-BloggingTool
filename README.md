@@ -10,7 +10,6 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 
 - Next.js
 - Typescript
-- [Json-server](https://github.com/typicode/json-server)
 
 # Run on your machine and customize it as you wish
 
@@ -53,25 +52,8 @@ npm install hayoung-markdown@latest // this is my markdown package
    1. [[toy blog service] Webpack, TypeScript와 React(Babel은 천천히!)](https://mytutorials.tistory.com/350)
    2. [[toy blog service] React Component를 Package화 하기(hayoung-markdown)](https://mytutorials.tistory.com/351)
 
-4. APIs with Json Server
-   - [[toy blog service] Next.js의 API와 json-server 사용하기](https://mytutorials.tistory.com/353)
-
-<!-- 4. API & Database, Json Server:
-      - simple server and apis using json-server: https://github.com/roldanjr/next-crud/blob/master/pages/api/employees/%5Bid%5D.js
-1. Deploying with AWS -->
-
-<!-- # Important
-
-- getStaticProps: for static build page - [visit](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) -->
-
-<!-- # Reference
-
-- [Next.js Building a Car Trader Application](https://www.youtube.com/watch?v=Hy4Por0yfqE&list=PLYSZyzpwBEWTt-0uuxAcSrJmMlnD9Yuz3&ab_channel=BrunoAntunes)
-- [How to Build a Fullstack App with Next.js, Prisma, and PostgreSQL](https://vercel.com/guides/nextjs-prisma-postgres) -->
-
-<!-- Json-server: https://www.npmjs.com/package/json-server#database -->
-
-<!-- Using React ContextAPI + useReducer as a replacement of Redux as a State Management Architecture: https://hmh.engineering/using-react-contextapi-usereducer-as-a-replacement-of-redux-as-a-state-management-architecture-336452b2930e -->
+4. APIs with
+   - [[toy blog service] Next.js의 API와 json](https://mytutorials.tistory.com/353)
 
 # License
 

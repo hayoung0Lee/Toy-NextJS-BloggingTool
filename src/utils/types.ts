@@ -15,4 +15,17 @@ interface IntroType {
   answer: string;
 }
 
-export type { PostType, IntroType, ContentsType };
+interface UserType {
+  userId: string;
+  password: string;
+}
+
+interface ArticleType {
+  articleId: string;
+  title: string;
+  contents: string;
+  author: string;
+  viewCount: string;
+}
+
+export type { PostType, IntroType, ContentsType, UserType, ArticleType };
