@@ -4,3 +4,19 @@
   margin-bottom: 20px;
   padding-left: 20px;
 }
+
+.viewerComponentWrapper > div {
+  width: 100%;
+  min-height: 500px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 50px auto;
+}
+
+.viewerComponentWrapper > div > h2 {
+  margin: 0;
+  padding: 0;
+}
+.viewerComponentWrapper > div > div {
+  height: 100%;
+}

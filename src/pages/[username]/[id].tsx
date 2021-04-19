@@ -5,6 +5,16 @@ import { PostType } from "../../utils/types";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { openJsonFile } from "../../utils/common";
 import { ParsedUrlQuery } from "querystring";
+import dynamic from "next/dynamic";
+import styles from "../../styles/pages.module.css";
+import Link from "next/link";
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import("hayoung-markdown").then((mod) => mod.Viewer),
+  {
+    ssr: false,
+  }
+);
 
 // Incremental Static Site Regeneration - preview mode
 interface Route extends ParsedUrlQuery {
@@ -57,6 +67,7 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       data,
+      username,
     }, // will be passed to the page component as props
     revalidate: 1,
   };
@@ -64,10 +75,14 @@ export const getStaticProps: GetStaticProps = async ({
 
 interface Props {
   data: PostType;
+  username: string;
 }
-const UserPost: React.FC<Props> = ({ data }) => {
+const UserPost: React.FC<Props> = ({ data, username }) => {
   const router = useRouter();
-
+  console.log(
+    "`/${username}/write/${data.id}`",
+    `/${username}/write?id=${data.id}`
+  );
   return (
     <div>
       <Head>
@@ -75,9 +90,20 @@ const UserPost: React.FC<Props> = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        {router.query.username}'s Post: {data?.title}
+        <p>
+          {router.query.username}'s Post: {data?.title}
+        </p>
+        <p>
+          <Link href={`/${username}/write?id=${data.id}`}>
+            <a>edit</a>
+          </Link>
+        </p>
       </div>
-      <div>Contents for Post: {data?.contents}</div>
+      <div className={styles.viewerComponentWrapper}>
+        {process.browser && data && data.contents ? (
+          <DynamicComponentWithNoSSR convertedMarkDown={data.contents} />
+        ) : null}
+      </div>
     </div>
   );
 };
