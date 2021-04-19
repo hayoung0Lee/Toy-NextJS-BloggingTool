@@ -23,7 +23,7 @@ const Intro: React.FC<Props> = ({ introData }) => {
   return (
     <div>
       <Head>
-        <title>Introducting ToyBlog</title>
+        <title>Introducing ToyBlog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Introducting ToyBlog</h1>

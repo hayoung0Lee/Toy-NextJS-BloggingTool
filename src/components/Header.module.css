@@ -10,9 +10,10 @@
 .leftWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border: 1px solid black;
   width: 150px;
+  font-size: 30px;
 }
 
 /* 상단 우측 setting button style */

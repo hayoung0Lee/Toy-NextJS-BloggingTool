@@ -14,14 +14,9 @@ const Layout: React.FC = () => {
       <div className={styles.leftWrapper}>
         <div className="disable-select">
           <Link href="/">
-            <a>Logo</a>
+            <a>ToyBlog</a>
           </Link>
         </div>
-        <button className="disable-select">
-          <Link href="/intro">
-            <a>Intro</a>
-          </Link>
-        </button>
       </div>
       <div className="disable-select">
         <span onClick={() => toggleDropDown(!isOpen)}>Setting</span>
@@ -39,6 +34,11 @@ const Layout: React.FC = () => {
                 activeClassName={styles.selected}
               >
                 <a>New Post</a>
+              </ActiveLink>
+            </li>
+            <li>
+              <ActiveLink href="/intro" activeClassName={styles.selected}>
+                <a>Intro</a>
               </ActiveLink>
             </li>
             <li>Login/Logout</li>
