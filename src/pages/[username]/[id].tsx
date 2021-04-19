@@ -68,6 +68,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       data,
       username,
+      id,
     }, // will be passed to the page component as props
     revalidate: 1,
   };
@@ -76,13 +77,10 @@ export const getStaticProps: GetStaticProps = async ({
 interface Props {
   data: PostType;
   username: string;
+  id: string;
 }
-const UserPost: React.FC<Props> = ({ data, username }) => {
+const UserPost: React.FC<Props> = ({ data, username, id }) => {
   const router = useRouter();
-  console.log(
-    "`/${username}/write/${data.id}`",
-    `/${username}/write?id=${data.id}`
-  );
   return (
     <div>
       <Head>
@@ -91,10 +89,10 @@ const UserPost: React.FC<Props> = ({ data, username }) => {
       </Head>
       <div>
         <p>
-          {router.query.username}'s Post: {data?.title}
+          {username}'s Post: {data?.title}
         </p>
         <p>
-          <Link href={`/${username}/write?id=${data.id}`}>
+          <Link href={`/${username}/write?articleId=${id}`}>
             <a>edit</a>
           </Link>
         </p>

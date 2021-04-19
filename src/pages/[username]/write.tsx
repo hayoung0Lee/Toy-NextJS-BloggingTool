@@ -1,7 +1,8 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
+import router from "next/router";
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import("hayoung-markdown").then((mod) => mod.App),
@@ -11,7 +12,9 @@ const DynamicComponentWithNoSSR = dynamic(
 );
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const articleId = context.query.id ? context.query.id : undefined;
+  const articleId = context.query.articleId
+    ? context.query.articleId
+    : undefined;
 
   if (!articleId) {
     const data = "";
@@ -40,6 +43,24 @@ const UserWrite: React.FC<Props> = ({ data }) => {
   const handleTrigger = (str: string) => {
     return str;
   };
+
+  // FIXME: data doesn't reset error
+  if (!data) {
+    return (
+      <div>
+        <Head>
+          <title>UserWrite</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        {process.browser ? (
+          <DynamicComponentWithNoSSR
+            passedContents={""}
+            handleTrigger={handleTrigger}
+          />
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div>

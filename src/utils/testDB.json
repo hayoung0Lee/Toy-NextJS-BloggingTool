@@ -14,38 +14,18 @@
       {
         "id": 0,
         "title": "hayoung-1",
-        "contents": "something something Contents",
+        "contents": "something something Contents\nhello\ttest\ttest",
         "viewCount": 18
       },
       {
         "id": 1,
-        "title": "hayoung-1",
+        "title": "hayoung-2",
         "contents": "something something Contents",
         "viewCount": 13
       },
       {
         "id": 2,
-        "title": "hayoung-1",
-        "contents": "something something Contents",
-        "viewCount": 2
-      }
-    ],
-    "jiyeon": [
-      {
-        "id": 0,
-        "title": "jiyeon-1",
-        "contents": "something something Contents",
-        "viewCount": 11
-      },
-      {
-        "id": 1,
-        "title": "jiyeon-1",
-        "contents": "something something Contents",
-        "viewCount": 1
-      },
-      {
-        "id": 2,
-        "title": "jiyeon-1",
+        "title": "hayoung-3",
         "contents": "something something Contents",
         "viewCount": 2
       }

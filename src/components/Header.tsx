@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ActiveLink from "./ActiveLink";
 import styles from "./Header.module.css";
+import { useStore } from "../utils/store";
 
 const Layout: React.FC = () => {
   // TODO: Redux로 전역상태 관리해서 현재 어디있는지 파악
   // if username -> Username
   // else ToyBlog
-  const [isOpen, toggleDropDown] = useState<boolean>(false);
+
+  // @ts-ignore
+  const { isOpen, toggleDropDown } = useStore();
 
   return (
     <header className={styles.header}>
