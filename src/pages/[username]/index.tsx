@@ -3,6 +3,8 @@ import React from "react";
 import { PostType } from "../../utils/types";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { openJsonFile } from "../../utils/common";
+import Link from "next/link";
+import styles from "../../styles/pages.module.css";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -22,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       data,
+      username,
     }, // will be passed to the page component as props
     revalidate: 1,
   };
@@ -29,23 +32,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 interface Props {
   data: PostType[];
+  username: string;
 }
 
-const UserHome: React.FC<Props> = ({ data }) => {
+const UserHome: React.FC<Props> = ({ data, username }) => {
   return (
     <div>
       <Head>
         <title>UserHome</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>UserHome</div>
-      <div>
+      <h1>UserHome</h1>
+      <div className={styles.postList}>
         {data?.map((d, index: number) => {
           return (
-            <div key={index}>
-              <h2>{d.title}</h2>
-              <h5>{d.contents}</h5>
-            </div>
+            <Link key={index} href={`/${username}/${d.id}`}>
+              <div>
+                <h2>{d.title}</h2>
+                <h5>{d.contents}</h5>
+              </div>
+            </Link>
           );
         })}
       </div>
