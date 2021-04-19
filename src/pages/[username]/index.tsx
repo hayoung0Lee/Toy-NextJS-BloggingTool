@@ -5,7 +5,6 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { openJsonFile } from "../../utils/common";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  console.log("getStaticPaths");
   return {
     paths: [
       { params: { username: "hayoung" } }, // See the "paths" section below

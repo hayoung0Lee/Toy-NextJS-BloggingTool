@@ -68,10 +68,10 @@ npm install hayoung-markdown@latest // this is my markdown package
 
 - getStaticProps: for static build page - [visit](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) -->
 
-# Reference
+<!-- # Reference
 
 - [Next.js Building a Car Trader Application](https://www.youtube.com/watch?v=Hy4Por0yfqE&list=PLYSZyzpwBEWTt-0uuxAcSrJmMlnD9Yuz3&ab_channel=BrunoAntunes)
-- [How to Build a Fullstack App with Next.js, Prisma, and PostgreSQL](https://vercel.com/guides/nextjs-prisma-postgres)
+- [How to Build a Fullstack App with Next.js, Prisma, and PostgreSQL](https://vercel.com/guides/nextjs-prisma-postgres) -->
 
 # License
 

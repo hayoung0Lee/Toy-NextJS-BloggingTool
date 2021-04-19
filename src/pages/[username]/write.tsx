@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
 
@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
-  const data = `Update Article ${articleId}`;
+  const data = `Update Article ${articleId} \ttab \nenter`;
   return {
     props: {
       data,
