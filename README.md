@@ -22,9 +22,6 @@ npm install
 npm run build
 npm run start
 
-// run Json-server
-npx json-server --watch ./src/utils/testDB.json
-
 // when you have to update hayong-markdown package
 npm install hayoung-markdown@latest // this is my markdown package
 ```

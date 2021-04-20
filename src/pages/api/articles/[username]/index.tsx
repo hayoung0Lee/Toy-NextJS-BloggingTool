@@ -21,6 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const reqData = JSON.parse(req.body);
     const createdData = await insertData("articles", {
       ...reqData,
+      viewCount: "1",
       author: username,
     });
 

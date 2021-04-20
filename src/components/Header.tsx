@@ -12,6 +12,8 @@ const Layout: React.FC = () => {
   // @ts-ignore
   const { isOpen, toggleDropDown } = useStore();
 
+  // TODO: modal 창 만들기
+  // login 기능 prototype으로 구현하고, to my blog username 적용할수 있도록 하기
   return (
     <header className={styles.header}>
       <div className={styles.leftWrapper}>
