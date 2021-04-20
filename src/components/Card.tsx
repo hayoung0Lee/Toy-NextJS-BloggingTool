@@ -9,8 +9,7 @@ interface Props {
 
 const CardViewer: React.FC<Props> = ({ d }) => {
   return (
-    // TODO: hayoung -> username
-    <Link href={`/hayoung/${d.articleId}`}>
+    <Link href={`/${d.author}/${d.articleId}`}>
       <div className={styles.card}>
         <ul>
           <li>{d.articleId}</li>

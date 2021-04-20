@@ -52,6 +52,8 @@ npm install hayoung-markdown@latest // this is my markdown package
 4. APIs with
    - [[toy blog service] Next.js의 API와 json](https://mytutorials.tistory.com/353)
 
+<!-- localstorage, sessionStorage: https://blog.javabom.com/minhee/session/storage/localstorage-sessionstorage/react -->
+
 # License
 
 This is released under the MIT license. See [LICENSE](LICENSE) for details.

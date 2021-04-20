@@ -19,32 +19,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const password = reqData["password"];
   const selectResult = await selectData("users", { userId: userId });
   if (selectResult.length > 0 && password === selectResult[0]["password"]) {
-    res.status(200).json({ message: "Login Success" });
+    // FIXME: need token
+    res.status(200).json({ token: `${userId}` });
   } else {
     res.status(200).json({ message: "Login Failed" });
   }
-
-  // const jsonData = await openJsonFile();
-  // if (
-  //   jsonData.user[reqJson.id] &&
-  //   jsonData.user[reqJson.id].password === reqJson.password
-  // ) {
-  //   res.status(200).json({ message: "Login Success" });
-  // } else {
-  //   res.status(200).json({ message: "Login Failed" });
-  // }
-  // const jsonData = await insertData("users", {
-  //   userId: "jiyeon",
-  //   password: "password",
-  // });
-  // const jsonData = await insertData("articles", {
-  //   articleId: "3",
-  //   title: "test",
-  //   contents: "test",
-  //   author: "hayoung",
-  //   viewCount: "1",
-  // });
-  // const jsonData = await selectData("articles", "author", "hayoung");
-  // console.log("jsonData", jsonData);
-  // res.status(200).json({ message: "Login Success" });
 };
