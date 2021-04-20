@@ -44,7 +44,10 @@ const selectData = async (
 ) => {
   const db = await openJsonFile();
 
-  console.log("keyname", keyName, filterKey);
+  if (keyName === "intro") {
+    return db[keyName];
+  }
+
   if (keyName === "users") {
     if (!filterKey) {
       return db[keyName];

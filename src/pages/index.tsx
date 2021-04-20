@@ -1,41 +1,28 @@
 import Head from "next/head";
 import React from "react";
 import CardViewer from "../components/CardViewer";
-import { PostType, ContentsType } from "../utils/types";
+import { ArticleType } from "../utils/types";
 import { GetStaticProps } from "next";
-import { openJsonFile } from "../utils/common";
-
-const getOnlyContentsAndSort = (data: ContentsType): PostType[] => {
-  let result: PostType[] = [];
-
-  // console.log(Object.entries(data));
-  for (const [author, post] of Object.entries(data)) {
-    // console.log(author, post);
-    result = [...result, ...post];
-  }
-
-  result.sort(function (a: PostType, b: PostType) {
-    return -(a.viewCount - b.viewCount); // 내림차순
-  });
-
-  return result;
-};
+import { selectData } from "../utils/common";
 
 // Incremental Static Regeneration
 export const getStaticProps: GetStaticProps = async (context) => {
-  const jsonData = await openJsonFile();
-  const data: PostType[] = getOnlyContentsAndSort(jsonData["contents"]);
+  const selectResult = await selectData("articles");
+  // sort
+  selectResult.sort(function (a: ArticleType, b: ArticleType) {
+    return -(+a.viewCount - +b.viewCount); // 내림차순
+  });
 
   return {
     props: {
-      data,
+      data: selectResult,
     }, // will be passed to the page component as props
     revalidate: 1,
   };
 };
 
 interface Props {
-  data: PostType[];
+  data: ArticleType[];
 }
 
 const Home: React.FC<Props> = ({ data }) => {

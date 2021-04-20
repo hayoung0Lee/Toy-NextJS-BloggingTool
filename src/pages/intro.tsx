@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React from "react";
 import { GetStaticProps } from "next";
-import testDB from "../utils/testDB.json";
 import { IntroType } from "../utils/types";
+import { selectData } from "../utils/common";
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const introData: IntroType[] = testDB["intro"];
+  const introData: IntroType[] = await selectData("intro");
 
   return {
     props: {
