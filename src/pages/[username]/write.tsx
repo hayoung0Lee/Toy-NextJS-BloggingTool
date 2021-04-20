@@ -2,7 +2,9 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
-import router from "next/router";
+import { selectData } from "../../utils/common";
+import { useRouter } from "next/router";
+import { useStore } from "../../utils/store";
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import("hayoung-markdown").then((mod) => mod.App),
@@ -12,11 +14,12 @@ const DynamicComponentWithNoSSR = dynamic(
 );
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const articleId = context.query.articleId
+  const articleId = (context.query.articleId
     ? context.query.articleId
-    : undefined;
+    : "-1") as string;
+  const username = context.query.username as string;
 
-  if (!articleId) {
+  if (articleId === "-1") {
     const data = "";
     return {
       props: {
@@ -25,7 +28,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
-  const data = `Update Article ${articleId} \ttab \nenter`;
+  const selectResult = await selectData("articles", {
+    author: username,
+    articleId: articleId,
+  });
+
+  const data = selectResult && selectResult[0].contents;
+
   return {
     props: {
       data,
@@ -35,32 +44,26 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 interface Props {
   data: string;
+  firstRender: boolean;
 }
 
 const UserWrite: React.FC<Props> = ({ data }) => {
-  const contents = data;
+  const [contents, setContents] = useState<string>(data);
+  const router = useRouter();
+  // @ts-ignore
+  const { reset, setReset } = useStore();
 
   const handleTrigger = (str: string) => {
     return str;
   };
 
-  // FIXME: data doesn't reset error
-  if (!data) {
-    return (
-      <div>
-        <Head>
-          <title>UserWrite</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        {process.browser ? (
-          <DynamicComponentWithNoSSR
-            passedContents={""}
-            handleTrigger={handleTrigger}
-          />
-        ) : null}
-      </div>
-    );
-  }
+  // FIXEME: textarea defaultvalue가업데이트가 안된다
+  useEffect(() => {
+    if (reset) {
+      setReset(false);
+      setContents("");
+    }
+  }, [reset]);
 
   return (
     <div>
@@ -68,6 +71,7 @@ const UserWrite: React.FC<Props> = ({ data }) => {
         <title>UserWrite</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div>force Update {contents}</div>
       {process.browser ? (
         <DynamicComponentWithNoSSR
           passedContents={contents}

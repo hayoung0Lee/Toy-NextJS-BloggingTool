@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import { useRouter } from "next/router";
-import { PostType } from "../../utils/types";
+import { ArticleType } from "../../utils/types";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { openJsonFile } from "../../utils/common";
+import { selectData } from "../../utils/common";
 import { ParsedUrlQuery } from "querystring";
 import dynamic from "next/dynamic";
 import styles from "../../styles/pages.module.css";
@@ -27,15 +27,13 @@ interface PathType {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const jsonData = await openJsonFile();
+  // fetch current articles
+  const selectResult: ArticleType[] = await selectData("articles");
   const staticPaths: PathType[] = [];
-
-  for (const [user, posts] of Object.entries(jsonData.contents)) {
-    const postsData = posts as PostType[];
-
-    for (const p of postsData) {
-      staticPaths.push({ params: { username: user, id: p.id.toString() } });
-    }
+  for (const article of selectResult) {
+    staticPaths.push({
+      params: { username: article.author, id: article.articleId },
+    });
   }
 
   return {
@@ -59,14 +57,17 @@ export const getStaticProps: GetStaticProps = async ({
     };
   }
 
-  const jsonData = await openJsonFile();
   const username = params.username as string;
-  const id = +(params.id as string);
-  const data: PostType[] = jsonData.contents[username][id] || [];
+  const id = params.id as string;
+
+  const selectResult = await selectData("articles", {
+    author: username,
+    articleId: id,
+  });
 
   return {
     props: {
-      data,
+      data: selectResult && selectResult[0],
       username,
       id,
     }, // will be passed to the page component as props
@@ -75,12 +76,12 @@ export const getStaticProps: GetStaticProps = async ({
 };
 
 interface Props {
-  data: PostType;
+  data: ArticleType;
   username: string;
   id: string;
 }
+
 const UserPost: React.FC<Props> = ({ data, username, id }) => {
-  const router = useRouter();
   return (
     <div>
       <Head>

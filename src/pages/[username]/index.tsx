@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import { PostType } from "../../utils/types";
+import { ArticleType } from "../../utils/types";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { openJsonFile } from "../../utils/common";
+import { selectData } from "../../utils/common";
 import Link from "next/link";
 import styles from "../../styles/pages.module.css";
 
@@ -17,9 +17,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // Incremental Static Site Regeneration
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const jsonData = await openJsonFile();
   const username = params.username as string;
-  const data: PostType[] = jsonData.contents[username] || [];
+
+  const data = await selectData("articles", {
+    author: username,
+  });
 
   return {
     props: {
@@ -31,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 interface Props {
-  data: PostType[];
+  data: ArticleType[];
   username: string;
 }
 
@@ -46,7 +48,7 @@ const UserHome: React.FC<Props> = ({ data, username }) => {
       <div className={styles.postList}>
         {data?.map((d, index: number) => {
           return (
-            <Link key={index} href={`/${username}/${d.id}`}>
+            <Link key={index} href={`/${username}/${d.articleId}`}>
               <div>
                 <h2>{d.title}</h2>
                 <h5>{d.contents}</h5>

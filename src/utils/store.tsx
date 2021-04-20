@@ -9,8 +9,10 @@ export const useStore = () => React.useContext(Store);
 
 export const StoreProvider = ({ children }) => {
   const [isOpen, toggleDropDown] = useState<boolean>(false);
+  const [reset, setReset] = useState<boolean>(false);
+
   return (
-    <Store.Provider value={{ isOpen, toggleDropDown }}>
+    <Store.Provider value={{ isOpen, toggleDropDown, reset, setReset }}>
       {children}
     </Store.Provider>
   );
