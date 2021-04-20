@@ -112,7 +112,7 @@ const insertData = async (keyName: string, data: UserType | ArticleType) => {
   if (keyName === "users" && !instanceOfArticle(data)) {
     db[keyName].push(data);
     await writeJsonFile(db);
-    return true;
+    return [data];
   }
 
   if (keyName === "articles" && instanceOfArticle(data)) {
@@ -127,16 +127,16 @@ const insertData = async (keyName: string, data: UserType | ArticleType) => {
             .articleId + 1;
     data.articleId = "" + articleId;
 
-    if (db[keyName][data.author]) {
+    if (!db[keyName][data.author]) {
       db[keyName][data.author] = [];
     }
 
     db[keyName][data.author].push(data);
     await writeJsonFile(db);
-    return true;
+    return [data];
   }
 
-  return false;
+  return [];
 };
 
 const updateArticle = async (
@@ -145,16 +145,21 @@ const updateArticle = async (
   data: { title: string; contents: string }
 ) => {
   const db = await openJsonFile();
-  db["articles"][username].forEach((row: ArticleType, index: number) => {
-    if (row.articleId === articleId) {
-      console.log("same!!", row, data);
-      db["articles"][username][index]["title"] = data.title;
-      db["articles"][username][index]["contents"] = data.contents;
-    }
-  });
-
-  await writeJsonFile(db);
-  return true;
+  const result = [];
+  try {
+    db["articles"][username].forEach((row: ArticleType, index: number) => {
+      if (row.articleId === articleId) {
+        db["articles"][username][index]["title"] = data.title;
+        db["articles"][username][index]["contents"] = data.contents;
+        result.push(db["articles"][username][index]);
+      }
+    });
+    await writeJsonFile(db);
+    return result;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
 };
 
 const deleteData = () => {};

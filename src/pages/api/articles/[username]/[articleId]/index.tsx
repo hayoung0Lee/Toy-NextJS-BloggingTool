@@ -23,7 +23,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // updateArticle
     const reqData = JSON.parse(req.body);
     const updateResult = await updateArticle(username, articleId, reqData);
-    res.status(200).json({ message: updateResult });
+    // res.status(200).json({ message: updateResult });
+    // preview 설정하고 redirect
+    if (updateResult.length > 0) {
+      res.setPreviewData(updateResult[0], { maxAge: 5 });
+      res.status(200).json({ message: updateResult[0] });
+    } else {
+      res.status(200).json({ message: "something went wrong" });
+    }
+
     return;
   }
 

@@ -19,12 +19,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // create a new article by this use
     // const reqData = JSON.parse(req.body);
     const reqData = JSON.parse(req.body);
-    const jsonData = await insertData("articles", {
+    const createdData = await insertData("articles", {
       ...reqData,
       author: username,
     });
-    console.log("post", jsonData);
-    res.status(200).json({ message: jsonData });
+
+    if (createdData.length > 0) {
+      res.setPreviewData(createdData[0], { maxAge: 5 });
+      res.status(200).json({ message: createdData[0] });
+    } else {
+      res.status(200).json({ message: "something went wrong" });
+    }
     return;
   }
 

@@ -47,18 +47,19 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
+  const username = params.username as string;
+  const id = params.id as string;
+
   if (preview) {
-    console.log("preview");
     return {
       props: {
         data: previewData,
+        username,
+        id,
       }, // will be passed to the page component as props
       // revalidate: 1,
     };
   }
-
-  const username = params.username as string;
-  const id = params.id as string;
 
   const selectResult = await selectData("articles", {
     author: username,

@@ -24,6 +24,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         data,
+        username,
+        articleId,
       },
     };
   }
@@ -38,23 +40,48 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       data,
+      username,
+      articleId,
     },
   };
 };
 
 interface Props {
   data: string;
-  firstRender: boolean;
+  username: string;
+  articleId: string;
 }
 
-const UserWrite: React.FC<Props> = ({ data }) => {
+const UserWrite: React.FC<Props> = ({ data, username, articleId }) => {
   const [contents, setContents] = useState<string>(data);
   const router = useRouter();
   // @ts-ignore
   const { reset, setReset } = useStore();
 
   const handleTrigger = (str: string) => {
+    setContents(str);
     return str;
+  };
+
+  const handleSave = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    if (articleId === "-1") {
+      const response = await fetch(`/api/articles/${username}`, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
+      });
+      const result = await response.json();
+      router.push(`/${username}/${result.message.articleId}`);
+    } else {
+      const response = await fetch(`/api/articles/${username}/${articleId}`, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
+      });
+      const result = await response.json();
+      router.push(`/${username}/${result.message.articleId}`);
+    }
   };
 
   // FIXEME: textarea defaultvalue가업데이트가 안된다
@@ -78,6 +105,7 @@ const UserWrite: React.FC<Props> = ({ data }) => {
           handleTrigger={handleTrigger}
         />
       ) : null}
+      <button onClick={(e) => handleSave(e)}>저장하기</button>
     </div>
   );
 };
