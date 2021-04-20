@@ -26,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // res.status(200).json({ message: updateResult });
     // preview 설정하고 redirect
     if (updateResult.length > 0) {
-      res.setPreviewData(updateResult[0], { maxAge: 5 });
+      res.setPreviewData(updateResult[0], { maxAge: 10 });
       res.status(200).json({ message: updateResult[0] });
     } else {
       res.status(200).json({ message: "something went wrong" });

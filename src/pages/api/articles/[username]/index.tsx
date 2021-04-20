@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     if (createdData.length > 0) {
-      res.setPreviewData(createdData[0], { maxAge: 5 });
+      res.setPreviewData(createdData[0], { maxAge: 10 });
       res.status(200).json({ message: createdData[0] });
     } else {
       res.status(200).json({ message: "something went wrong" });

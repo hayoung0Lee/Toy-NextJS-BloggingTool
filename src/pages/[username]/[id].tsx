@@ -51,13 +51,14 @@ export const getStaticProps: GetStaticProps = async ({
   const id = params.id as string;
 
   if (preview) {
+    // console.log("previewData", previewData);
     return {
       props: {
         data: previewData,
         username,
         id,
       }, // will be passed to the page component as props
-      // revalidate: 1,
+      revalidate: 1,
     };
   }
 
