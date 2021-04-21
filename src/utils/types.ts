@@ -28,4 +28,15 @@ interface ArticleType {
   viewCount: string;
 }
 
-export type { PostType, IntroType, ContentsType, UserType, ArticleType };
+interface FlashMessageType {
+  message: string;
+  duration: number;
+}
+export type {
+  PostType,
+  IntroType,
+  ContentsType,
+  UserType,
+  ArticleType,
+  FlashMessageType,
+};

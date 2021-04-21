@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Modal.module.css";
 import Modal from "./Modal";
 import { useStore } from "../../utils/store";
 import { UserType } from "../../utils/types";
@@ -18,7 +17,8 @@ const Login: React.FC<Props> = ({
   setStorage,
 }) => {
   // @ts-ignore
-  const { toggleDropDown } = useStore();
+  const { toggleDropDown, sendMessage } = useStore();
+
   return (
     <Modal
       closeModal={() => {
@@ -42,9 +42,10 @@ const Login: React.FC<Props> = ({
               setStorage(result.token);
               toggleDropDown(false);
               setModal(0);
+              sendMessage("로그인에 성공했습니다(Login Success)");
               return;
             }
-            alert("try again, unAuthorized");
+            sendMessage("try again, unAuthorized");
           }}
         >
           <input

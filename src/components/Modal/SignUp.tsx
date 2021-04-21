@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Modal.module.css";
 import Modal from "./Modal";
 import { useStore } from "../../utils/store";
 import { UserType } from "../../utils/types";
@@ -18,7 +17,7 @@ const SignUp: React.FC<Props> = ({
   setStorage,
 }) => {
   // @ts-ignore
-  const { toggleDropDown } = useStore();
+  const { toggleDropDown, sendMessage } = useStore();
 
   return (
     <Modal
@@ -43,9 +42,10 @@ const SignUp: React.FC<Props> = ({
               setStorage(result.token);
               toggleDropDown(false);
               setModal(0);
+              sendMessage("회원가입에 성공했습니다! 환영합니다!");
               return;
             }
-            alert("try again, signUp failed");
+            sendMessage("try again, signUp failed");
           }}
         >
           <input

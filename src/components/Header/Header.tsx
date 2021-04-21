@@ -6,6 +6,7 @@ import Login from "../Modal/Login";
 import SignUp from "../Modal/SignUp";
 import { UserType } from "../../utils/types";
 import { useStore } from "../../utils/store";
+import FlashMessageController from "../FlashMessage/FlashMessageController";
 
 const Header: React.FC = () => {
   const [isModalOpen, setModal] = useState<number>(0); // 0: 닫기, 1: 로그인, 2: 가입
@@ -57,6 +58,7 @@ const Header: React.FC = () => {
           setStorage={setStorage}
         />
       )}
+      <FlashMessageController />
     </>
   );
 };

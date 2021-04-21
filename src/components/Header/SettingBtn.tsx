@@ -11,7 +11,18 @@ interface Props {
 
 const SettingBtn: React.FC<Props> = ({ setModal, clearStorage }) => {
   // @ts-ignore
-  const { isOpen, debounceToggleDropDown, token, setToken } = useStore();
+  const {
+    // @ts-ignore
+    isOpen,
+    // @ts-ignore
+    debounceToggleDropDown,
+    // @ts-ignore
+    token,
+    // @ts-ignore
+    setToken,
+    // @ts-ignore
+    sendMessage,
+  } = useStore();
 
   useEffect(() => {
     if (window) {
@@ -89,6 +100,7 @@ const SettingBtn: React.FC<Props> = ({ setModal, clearStorage }) => {
                   className={styles.logoutBtn}
                   onClick={() => {
                     clearStorage();
+                    sendMessage("로그아웃(Logout!)");
                   }}
                 >
                   Logout
