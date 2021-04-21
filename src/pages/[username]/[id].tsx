@@ -1,6 +1,5 @@
 import Head from "next/head";
-import React from "react";
-import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import { ArticleType } from "../../utils/types";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { selectData } from "../../utils/common";
@@ -8,6 +7,7 @@ import { ParsedUrlQuery } from "querystring";
 import dynamic from "next/dynamic";
 import styles from "../../styles/pages.module.css";
 import Link from "next/link";
+import { useStore } from "../../utils/store";
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import("hayoung-markdown").then((mod) => mod.Viewer),
@@ -51,7 +51,6 @@ export const getStaticProps: GetStaticProps = async ({
   const id = params.id as string;
 
   if (preview) {
-    // console.log("previewData", previewData);
     return {
       props: {
         data: previewData,
@@ -84,21 +83,25 @@ interface Props {
 }
 
 const UserPost: React.FC<Props> = ({ data, username, id }) => {
+  // @ts-ignore
+  const { token } = useStore();
   return (
     <div>
       <Head>
         <title>UserPost</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <p>
+      <div className={styles.menuWrapper}>
+        <h1>
           {username}'s Post: {data?.title}
-        </p>
-        <p>
-          <Link href={`/${username}/write?articleId=${id}`}>
-            <a>edit</a>
-          </Link>
-        </p>
+        </h1>
+        {token === data.author && (
+          <p className={styles.editButton}>
+            <Link href={`/${username}/write?articleId=${id}`}>
+              <button>edit</button>
+            </Link>
+          </p>
+        )}
       </div>
       <div className={styles.viewerComponentWrapper}>
         {process.browser && data && data.contents ? (

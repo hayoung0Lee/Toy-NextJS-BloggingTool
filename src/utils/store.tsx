@@ -10,6 +10,7 @@ export const useStore = () => React.useContext(Store);
 export const StoreProvider = ({ children }) => {
   const [isOpen, toggleDropDown] = useState<boolean>(false);
   const [reset, setReset] = useState<boolean>(false);
+  const [token, setToken] = useState<string>("");
 
   const handleToggle = (value: boolean) => {
     toggleDropDown(value);
@@ -25,6 +26,8 @@ export const StoreProvider = ({ children }) => {
         toggleDropDown,
         reset,
         setReset,
+        token,
+        setToken,
       }}
     >
       {children}

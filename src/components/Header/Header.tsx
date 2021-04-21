@@ -5,6 +5,7 @@ import SettingBtn from "./SettingBtn";
 import Login from "../Modal/Login";
 import SignUp from "../Modal/SignUp";
 import { UserType } from "../../utils/types";
+import { useStore } from "../../utils/store";
 
 const Header: React.FC = () => {
   const [isModalOpen, setModal] = useState<number>(0); // 0: 닫기, 1: 로그인, 2: 가입
@@ -14,16 +15,17 @@ const Header: React.FC = () => {
   });
 
   const setStorage = (token: string) => {
-    setLoginStatus(token);
+    setToken(token);
     window.localStorage.setItem("token", token);
   };
 
   const clearStorage = () => {
-    setLoginStatus("");
+    setToken("");
     window.localStorage.removeItem("token");
   };
 
-  const [loginStatus, setLoginStatus] = useState<string>("");
+  // @ts-ignore
+  const { setToken } = useStore();
 
   return (
     <>
@@ -35,14 +37,7 @@ const Header: React.FC = () => {
             </Link>
           </div>
         </div>
-        <SettingBtn
-          // isModalOpen={isModalOpen}
-          setModal={setModal}
-          loginStatus={loginStatus}
-          setLoginStatus={setLoginStatus}
-          // setStorage={setStorage}
-          clearStorage={clearStorage}
-        />
+        <SettingBtn setModal={setModal} clearStorage={clearStorage} />
       </header>
       {/* login */}
       {isModalOpen === 1 && (

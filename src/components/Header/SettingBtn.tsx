@@ -6,27 +6,20 @@ import styles from "./Header.module.css";
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<number>>;
-  loginStatus: string;
-  setLoginStatus: React.Dispatch<React.SetStateAction<string>>;
   clearStorage: () => void;
 }
 
-const SettingBtn: React.FC<Props> = ({
-  setModal,
-  loginStatus,
-  setLoginStatus,
-  clearStorage,
-}) => {
+const SettingBtn: React.FC<Props> = ({ setModal, clearStorage }) => {
   // @ts-ignore
-  const { isOpen, debounceToggleDropDown } = useStore();
+  const { isOpen, debounceToggleDropDown, token, setToken } = useStore();
 
   useEffect(() => {
     if (window) {
       // 현재 토큰값 읽어오기, 없으면 ""
       const token = window.localStorage.getItem("token") || "";
-      setLoginStatus(token);
+      setToken(token);
     }
-  }, [loginStatus]);
+  }, [token]);
 
   const handleModal = (value: number) => {
     setModal(value);
@@ -42,15 +35,15 @@ const SettingBtn: React.FC<Props> = ({
             debounceToggleDropDown(!isOpen);
           }}
         >
-          {loginStatus === "" ? `Setting` : loginStatus}
+          {token === "" ? `Setting` : token}
         </span>
         {isOpen && (
           <ul>
-            {loginStatus !== "" && (
+            {token !== "" && (
               <>
                 <li>
                   <ActiveLink
-                    href={`/${loginStatus}`}
+                    href={`/${token}`}
                     activeClassName={styles.selected}
                   >
                     <a>To my ToyBlog</a>
@@ -58,7 +51,7 @@ const SettingBtn: React.FC<Props> = ({
                 </li>
                 <li>
                   <ActiveLink
-                    href={`/${loginStatus}/write`}
+                    href={`/${token}/write`}
                     activeClassName={styles.selected}
                   >
                     <a>New Post</a>
@@ -71,7 +64,7 @@ const SettingBtn: React.FC<Props> = ({
                 <a>Intro</a>
               </ActiveLink>
             </li>
-            {loginStatus === "" ? (
+            {token === "" ? (
               <>
                 <li className={styles.logoutBtnWrapper}>
                   <a

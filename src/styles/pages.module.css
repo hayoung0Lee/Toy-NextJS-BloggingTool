@@ -20,3 +20,15 @@
 .viewerComponentWrapper > div > div {
   height: 100%;
 }
+
+.menuWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.editButton button {
+  width: 60px;
+  height: 30px;
+}
