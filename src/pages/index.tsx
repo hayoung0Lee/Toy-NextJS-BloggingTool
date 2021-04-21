@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import CardViewer from "../components/CardViewer";
+import CardViewer from "../components/Card/CardViewer";
 import { ArticleType } from "../utils/types";
 import { GetStaticProps } from "next";
 import { selectData } from "../utils/common";

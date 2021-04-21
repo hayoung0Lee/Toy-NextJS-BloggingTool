@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
 import Card from "./Card";
-import { ArticleType } from "../utils/types";
+import { ArticleType } from "../../utils/types";
 
 interface Props {
   data: ArticleType[];

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { ArticleType } from "../utils/types";
+import { ArticleType } from "../../utils/types";
 import Link from "next/link";
 
 interface Props {
