@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { debounce } from "../../utils/debounce";
 import { useStore } from "../../utils/store";
 import ActiveLink from "../ActiveLink";
@@ -28,6 +28,12 @@ const SettingBtn: React.FC<Props> = ({
     }
   }, [loginStatus]);
 
+  const handleModal = (value: number) => {
+    setModal(value);
+  };
+
+  const debounceModal = debounce(handleModal, 200);
+
   return (
     <>
       <div className="disable-select">
@@ -43,7 +49,6 @@ const SettingBtn: React.FC<Props> = ({
             {loginStatus !== "" && (
               <>
                 <li>
-                  {/* TODO: hayoung -> general username */}
                   <ActiveLink
                     href={`/${loginStatus}`}
                     activeClassName={styles.selected}
@@ -69,12 +74,18 @@ const SettingBtn: React.FC<Props> = ({
             {loginStatus === "" ? (
               <>
                 <li className={styles.logoutBtnWrapper}>
-                  <a className={styles.logoutBtn} onClick={() => setModal(1)}>
+                  <a
+                    className={styles.logoutBtn}
+                    onClick={() => debounceModal(1)}
+                  >
                     Login
                   </a>
                 </li>
                 <li className={styles.logoutBtnWrapper}>
-                  <a className={styles.logoutBtn} onClick={() => setModal(2)}>
+                  <a
+                    className={styles.logoutBtn}
+                    onClick={() => debounceModal(2)}
+                  >
                     SignUp
                   </a>
                 </li>
