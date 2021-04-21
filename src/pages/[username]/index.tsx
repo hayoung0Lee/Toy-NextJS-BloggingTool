@@ -38,6 +38,10 @@ interface Props {
 }
 
 const UserHome: React.FC<Props> = ({ data, username }) => {
+  if (!data) {
+    return <div>Page doesn't exist</div>;
+  }
+
   return (
     <div>
       <Head>

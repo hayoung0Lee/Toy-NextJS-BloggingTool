@@ -30,6 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // fetch current articles
   const selectResult: ArticleType[] = await selectData("articles");
   const staticPaths: PathType[] = [];
+
   for (const article of selectResult) {
     staticPaths.push({
       params: { username: article.author, id: article.articleId },
@@ -85,6 +86,10 @@ interface Props {
 const UserPost: React.FC<Props> = ({ data, username, id }) => {
   // @ts-ignore
   const { token } = useStore();
+  if (!data) {
+    return <div>Page doesn't exist</div>;
+  }
+
   return (
     <div>
       <Head>

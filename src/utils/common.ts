@@ -16,10 +16,17 @@ const writeJsonFile = async (jsonData: any) => {
 
 // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
 function instanceOfArticle(data: any): data is ArticleType {
+  if (!data) {
+    return false;
+  }
   return "author" in data;
 }
 
 function instanceOfArticleList(data: any): data is ArticleType[] {
+  if (data.length === 0) {
+    console.log("undefineds");
+    return false;
+  }
   return "author" in data[0];
 }
 
