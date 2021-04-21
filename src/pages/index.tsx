@@ -32,7 +32,6 @@ const Home: React.FC<Props> = ({ data }) => {
         <title>ToyBlog Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Blog Main - trending, latest</h1>
       <CardViewer data={data} />
     </div>
   );

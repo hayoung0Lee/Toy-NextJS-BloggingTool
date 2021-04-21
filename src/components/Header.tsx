@@ -39,7 +39,7 @@ const Layout: React.FC = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.leftWrapper}>
+        <div className={styles.logo}>
           <div className="disable-select">
             <Link href="/">
               <a>ToyBlog</a>
@@ -47,7 +47,9 @@ const Layout: React.FC = () => {
           </div>
         </div>
         <div className="disable-select">
-          <span onClick={() => toggleDropDown(!isOpen)}>Setting</span>
+          <span onClick={() => toggleDropDown(!isOpen)}>
+            {loginStatus === "" ? `Setting` : loginStatus}
+          </span>
           {isOpen && (
             <ul>
               {loginStatus !== "" && (

@@ -30,7 +30,7 @@ li {
 
 /* css variables */
 :root {
-  --my-header-height: 65px;
+  --my-header-height: 85px;
   --my-card-width: 300px;
   --my-card-height: 350px;
 }
