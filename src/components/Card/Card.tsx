@@ -13,7 +13,9 @@ const CardViewer: React.FC<Props> = ({ d }) => {
       <div className={styles.card}>
         <h2>{d.title}</h2>
         <p className={styles.contents}>{d.contents}</p>
-        <p className={styles.cardBottom}>by {d.author}</p>
+        <p className={styles.cardBottom}>
+          by {d.author}, view count {d.viewCount}
+        </p>
       </div>
     </Link>
   );
