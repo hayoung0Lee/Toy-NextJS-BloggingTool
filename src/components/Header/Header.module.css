@@ -40,26 +40,21 @@
 
 .header div:last-child ul {
   position: absolute;
-  top: calc(var(--my-header-height) - 6px - 20px);
+  top: calc(var(--my-header-height) - 6px - 20px + 2px);
   margin: 0;
   width: 150px;
   background-color: #feffff;
-  border: 1px solid #17252a;
+  box-shadow: var(--my-box-shadow);
   border-radius: 4px;
   padding: 0;
 }
 
 .header div:last-child ul li {
   height: 50px;
-  border-top: 1px solid #17252a;
   padding-left: 15px;
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-.header div:last-child ul li:first-child {
-  border-top: none;
 }
 
 /* 상단 우측 setting button style 끝 */
