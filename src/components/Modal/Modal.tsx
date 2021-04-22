@@ -10,10 +10,7 @@ const Modal: React.FC<Props> = ({ children, closeModal }) => {
   return (
     <>
       <div className={styles.modalWrapper} onClick={() => closeModal()}></div>
-      <div className={styles.modal}>
-        Modal
-        {children}
-      </div>
+      <div className={styles.modal}>{children}</div>
     </>
   );
 };
