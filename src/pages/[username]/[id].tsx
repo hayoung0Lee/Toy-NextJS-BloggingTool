@@ -97,9 +97,9 @@ const UserPost: React.FC<Props> = ({ data, username, id }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.menuWrapper}>
-        <h1>
+        <h2>
           {username}'s Post: {data?.title}
-        </h1>
+        </h2>
         {token === data.author && (
           <p className={styles.editButton}>
             <Link href={`/${username}/write?articleId=${id}`}>
@@ -108,6 +108,7 @@ const UserPost: React.FC<Props> = ({ data, username, id }) => {
           </p>
         )}
       </div>
+      <div>This Package is still under development(hayoung-markdown)</div>
       <div className={styles.viewerComponentWrapper}>
         {process.browser && data && data.contents ? (
           <DynamicComponentWithNoSSR convertedMarkDown={data.contents} />

@@ -67,20 +67,36 @@ const UserWrite: React.FC<Props> = ({ data, username, articleId }) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (articleId === "-1") {
-      const response = await fetch(`/api/articles/${username}`, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
-      });
-      const result = await response.json();
-      router.push(`/${username}/${result.message.articleId}`);
-    } else {
-      const response = await fetch(`/api/articles/${username}/${articleId}`, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
-      });
-      const result = await response.json();
-      router.push(`/${username}/${result.message.articleId}`);
+
+    let temp = window.confirm;
+    window.confirm = (str) => {
+      return true;
+    };
+
+    try {
+      if (articleId === "-1") {
+        const response = await fetch(`/api/articles/${username}`, {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
+          body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
+        });
+        const result = await response.json();
+
+        router.push(`/${username}/${result.message.articleId}`);
+      } else {
+        const response = await fetch(`/api/articles/${username}/${articleId}`, {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
+          body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
+        });
+        const result = await response.json();
+        router.push(`/${username}/${result.message.articleId}`);
+      }
+    } catch (err) {
+      console.error("submit", err);
+    } finally {
+      // FIXME: setTimeout 0를 통해서 window confirm 메시지 조정
+      setTimeout(() => {
+        window.confirm = temp;
+      }, 0);
     }
   };
 
@@ -98,7 +114,7 @@ const UserWrite: React.FC<Props> = ({ data, username, articleId }) => {
         <title>UserWrite</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>force Update {contents}</div>
+      <div>This Package is still under development(hayoung-markdown)</div>
       {process.browser ? (
         <DynamicComponentWithNoSSR
           passedContents={contents}
