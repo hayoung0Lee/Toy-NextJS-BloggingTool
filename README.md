@@ -52,7 +52,19 @@ npm install hayoung-markdown@latest // this is my markdown package
 4. APIs with
    - [[toy blog service] Next.js의 API와 json](https://mytutorials.tistory.com/353)
 
-<!-- localstorage, sessionStorage: https://blog.javabom.com/minhee/session/storage/localstorage-sessionstorage/react -->
+# Main features
+
+- [Flash message](./src/components/FlashMessage/FlashMessageController.tsx) that disappears after given time duration
+
+- Window.confirm feature when changing routes from write page
+
+- Applied debounce to buttons in setting menu
+
+- Login, logout, signout prototyping is localStorage
+
+- Apis with [custom functions](./src/utils/common.ts) using fs modules
+
+and more
 
 # License
 
