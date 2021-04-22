@@ -60,7 +60,7 @@ npm install hayoung-markdown@latest // this is my markdown package
 
 - Applied debounce to buttons in setting menu
 
-- Login, logout, signout prototyping is localStorage
+- Login, logout, signout prototyping using localStorage
 
 - Apis with [custom functions](./src/utils/common.ts) using fs modules
 
