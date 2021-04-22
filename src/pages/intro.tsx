@@ -3,6 +3,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import { IntroType } from "../utils/types";
 import { selectData } from "../utils/common";
+import styles from "../styles/pages.module.css";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const introData: IntroType[] = await selectData("intro");
@@ -26,12 +27,11 @@ const Intro: React.FC<Props> = ({ introData }) => {
         <title>Introducing ToyBlog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Introducting ToyBlog</h1>
       {introData.map((d, index) => {
         return (
-          <div key={index}>
+          <div key={index} className={styles.introList}>
             <h2>{d.question}</h2>
-            <h5>{d.answer}</h5>
+            <h4>{d.answer}</h4>
           </div>
         );
       })}

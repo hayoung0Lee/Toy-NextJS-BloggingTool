@@ -1,1 +1,36 @@
-{"users":[{"userId":"hayoung","password":"1234"},{"userId":"jiyeon","password":"1234"},{"userId":"test","password":"1234"}],"articles":{"hayoung":[{"title":"new data","contents":"hayoung의 18번글","viewCount":1,"author":"hayoung","articleId":"18"},{"title":"new data","contents":"hayoung의 19번글","viewCount":"1","author":"hayoung","articleId":"19"}],"jiyeon":[{"title":"jiyeon - 1-title!!!","contents":"지연이의 1번글","viewCount":1,"author":"jiyeon","articleId":"1"},{"title":"2-title!!!","contents":"지연이의 2번글","viewCount":2,"author":"jiyeon","articleId":"2"},{"title":"3-title!!!","contents":"지연이의 3번글","viewCount":3,"author":"jiyeon","articleId":"3"}],"test":[{"title":"new data","contents":"test씨의 1번글","viewCount":"1","author":"test","articleId":"1"},{"title":"new data","contents":"test의 2번글","viewCount":"1","author":"test","articleId":"2"}]},"intro":[{"question":"what is this?","answer":"this is toy blog service"},{"question":"which framework is this service using","answer":"This project is based on Next.js"}]}
+{
+  "users": [
+    { "userId": "hayoung", "password": "1234" },
+    { "userId": "jiyeon", "password": "1234" },
+    { "userId": "test", "password": "1234" }
+  ],
+  "articles": {
+    "hayoung": [
+      {
+        "title": "new data",
+        "contents": "dgdsgdgsdgsdg",
+        "viewCount": "1",
+        "author": "hayoung",
+        "articleId": "1"
+      },
+      {
+        "title": "new data",
+        "contents": "2번째 글",
+        "viewCount": "1",
+        "author": "hayoung",
+        "articleId": "2"
+      }
+    ]
+  },
+  "intro": [
+    { "question": "What is this?", "answer": "This is toy blog service" },
+    {
+      "question": "Which framework is this service using?",
+      "answer": "This project uses Next.js"
+    },
+    {
+      "question": "Who are you?",
+      "answer": "I'm Hayoung Lee"
+    }
+  ]
+}
