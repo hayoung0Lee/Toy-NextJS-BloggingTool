@@ -11,13 +11,9 @@ const CardViewer: React.FC<Props> = ({ d }) => {
   return (
     <Link href={`/${d.author}/${d.articleId}`}>
       <div className={styles.card}>
-        <ul>
-          <li>{d.articleId}</li>
-          <li>{d.author}</li>
-          <li>title: {d.title}</li>
-          <li>Content: {d.contents}</li>
-          <li>viewCount: {d.viewCount}</li>
-        </ul>
+        <h2>{d.title}</h2>
+        <p className={styles.contents}>{d.contents}</p>
+        <p className={styles.cardBottom}>by {d.author}</p>
       </div>
     </Link>
   );

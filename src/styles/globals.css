@@ -33,4 +33,5 @@ li {
   --my-header-height: 85px;
   --my-card-width: 300px;
   --my-card-height: 350px;
+  --my-box-shadow: rgb(0 0 0 / 18%) 0px 4px 16px;
 }

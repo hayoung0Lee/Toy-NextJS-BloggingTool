@@ -8,8 +8,34 @@
 }
 
 .card {
-  border: 1px solid #17252a;
+  /* border: 1px solid #17252a; */
+  border-radius: 4px;
+  box-shadow: var(--my-box-shadow);
   width: var(--my-card-width);
   height: var(--my-card-height);
   cursor: pointer;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 50px auto 50px;
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+}
+
+.contents {
+  line-height: 18px;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: calc(18px * 10);
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
 }
