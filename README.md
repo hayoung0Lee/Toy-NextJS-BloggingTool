@@ -6,6 +6,20 @@ The main goal of the `Toy-NextJS-BloggingTool` project is to learn how Next.js w
 
 - also, in this project I'm using my custom react component package, `hayoung-markdown`. Please check [this package](https://github.com/hayoung0Lee/hayoung-markdown).
 
+# Overview
+
+- Login, Logout and SignUp
+
+![login, logout and signup](./gif/login.gif)
+
+- Visiting User's Blog
+
+![user's blog](./gif/user.gif)
+
+- Article Create and Update, Warning when leaving article editing page
+
+![cru](./gif/cru.gif)
+
 # Project stack
 
 - Next.js
