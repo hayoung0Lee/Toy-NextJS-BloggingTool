@@ -33,7 +33,7 @@ const Login: React.FC<Props> = ({
             event.preventDefault();
             const response = await fetch(`/api/users/login`, {
               headers: {
-                Accept: "application/json",
+                "Content-Type": "application/json",
               },
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               body: JSON.stringify({

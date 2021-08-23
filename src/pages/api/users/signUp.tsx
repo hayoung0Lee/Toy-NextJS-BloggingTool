@@ -13,8 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .json({ message: "Sorry, login api only accepts POST method" });
     return;
   }
-
-  const reqData = JSON.parse(req.body); // req -> json
+  const reqData = req.body;
   const userId = reqData["userId"];
   const password = reqData["password"];
   console.log(userId, password);

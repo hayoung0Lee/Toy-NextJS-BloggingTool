@@ -14,9 +14,9 @@ const DynamicComponentWithNoSSR = dynamic(
 );
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const articleId = (context.query.articleId
-    ? context.query.articleId
-    : "-1") as string;
+  const articleId = (
+    context.query.articleId ? context.query.articleId : "-1"
+  ) as string;
   const username = context.query.username as string;
 
   if (articleId === "-1") {
@@ -76,6 +76,9 @@ const UserWrite: React.FC<Props> = ({ data, username, articleId }) => {
     try {
       if (articleId === "-1") {
         const response = await fetch(`/api/articles/${username}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
           method: "POST", // *GET, POST, PUT, DELETE, etc.
           body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
         });
@@ -84,6 +87,9 @@ const UserWrite: React.FC<Props> = ({ data, username, articleId }) => {
         router.push(`/${username}/${result.message.articleId}`);
       } else {
         const response = await fetch(`/api/articles/${username}/${articleId}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
           method: "POST", // *GET, POST, PUT, DELETE, etc.
           body: JSON.stringify({ title: "new data", contents: contents }), // body data type must match "Content-Type" header
         });

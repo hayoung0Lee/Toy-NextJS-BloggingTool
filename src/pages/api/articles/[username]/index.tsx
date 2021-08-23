@@ -18,7 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     // create a new article by this use
     // const reqData = JSON.parse(req.body);
-    const reqData = JSON.parse(req.body);
+    const reqData = req.body;
     const createdData = await insertData("articles", {
       ...reqData,
       viewCount: "1",

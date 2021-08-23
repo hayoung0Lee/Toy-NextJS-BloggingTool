@@ -21,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (req.method === "POST") {
     // updateArticle
-    const reqData = JSON.parse(req.body);
+    const reqData = req.body;
     const updateResult = await updateArticle(username, articleId, reqData);
     // res.status(200).json({ message: updateResult });
     // preview 설정하고 redirect
