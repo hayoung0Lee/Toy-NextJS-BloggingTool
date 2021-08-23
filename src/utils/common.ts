@@ -1,7 +1,32 @@
 import { UserType, ArticleType } from "./types";
 
+const isFileExisting = async (): Promise<boolean> => {
+  const fs = require("fs").promises;
+  try {
+    await fs.access("src/utils/DB.json");
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const initialJsonState = `{
+  "users": [],
+  "articles": {},
+  "intro": [{ "question": "What is this?", "answer": "This is toy blog service" },
+  {
+    "question": "Which framework is this service using?",
+    "answer": "This project uses Next.js"
+  },
+  { "question": "Who are you?", "answer": "I'm Hayoung Lee" }]
+}`;
+
 const openJsonFile = async () => {
   const fs = require("fs").promises;
+  const fileStatus = await isFileExisting();
+  if (!fileStatus) {
+    await fs.writeFile("src/utils/DB.json", initialJsonState, "utf8");
+  }
   const jsonFile = await fs.readFile("src/utils/DB.json");
   const jsonData = JSON.parse(jsonFile);
   return jsonData;
@@ -10,7 +35,7 @@ const openJsonFile = async () => {
 const writeJsonFile = async (jsonData: any) => {
   const fs = require("fs").promises;
   const data = JSON.stringify(jsonData);
-  fs.writeFile("src/utils/DB.json", data, "utf8");
+  await fs.writeFile("src/utils/DB.json", data, "utf8");
   return true;
 };
 
