@@ -32,6 +32,9 @@ const Login: React.FC<Props> = ({
           onSubmit={async (event) => {
             event.preventDefault();
             const response = await fetch(`/api/users/login`, {
+              headers: {
+                Accept: "application/json",
+              },
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               body: JSON.stringify({
                 userId: userData.userId,
