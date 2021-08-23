@@ -42,6 +42,7 @@ const Login: React.FC<Props> = ({
               }),
             });
             const result = await response.json();
+            console.log("result", result);
             if (result.token) {
               setStorage(result.token);
               toggleDropDown(false);
