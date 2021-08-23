@@ -1,0 +1,12 @@
+{
+  "users": [],
+  "articles": {},
+  "intro": [
+    { "question": "What is this?", "answer": "This is toy blog service" },
+    {
+      "question": "Which framework is this service using?",
+      "answer": "This project uses Next.js"
+    },
+    { "question": "Who are you?", "answer": "Im Hayoung Lee" }
+  ]
+}
